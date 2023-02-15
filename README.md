@@ -7,4 +7,4 @@ It is a mobile application that is in charge of renting tools for the days that 
 # Technologies
 - IDE - Android Studio
 - Kotlin
-- SQLite
+- Database - SQLite
