@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterToolFragment">
+    tools:context=".UpdateToolFragment">
 
     <ImageView
         android:layout_width="match_parent"
@@ -20,10 +20,10 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/formRegister"
+            android:id="@+id/formUpdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/register"
+            android:text="@string/update"
             android:textColor="#fff"
             android:gravity="center"
             android:translationY="-50dp" />
@@ -37,13 +37,13 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/imageUpdate"
                 android:layout_width="116dp"
                 android:layout_height="63dp"
                 tools:src="@tools:sample/avatars" />
 
             <EditText
-                android:id="@+id/nameToolRegister"
+                android:id="@+id/nameToolUpdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
@@ -56,7 +56,7 @@
                 android:textColorHint="#fff" />
 
             <EditText
-                android:id="@+id/descriptionToolRegister"
+                android:id="@+id/descriptionToolUpdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
@@ -69,7 +69,7 @@
                 android:autofillHints="Descripción" />
 
             <EditText
-                android:id="@+id/priceToolRegister"
+                android:id="@+id/priceToolUpdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
@@ -82,22 +82,23 @@
                 android:autofillHints="0" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/addRegister"
+                android:id="@+id/addUpdate"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:clickable="true"
-                android:contentDescription="@string/addTool"
-                android:src="@android:drawable/ic_input_add"
+                android:contentDescription="@string/updateTool"
+                android:src="@android:drawable/stat_notify_sync"
                 android:translationX="-70dp"
                 android:translationY="24dp"
-                app:backgroundTint="#CC18CA1F" />
+                app:backgroundTint="#CC18CA1F"
+                app:rippleColor="@color/material_on_background_emphasis_high_type" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/cancelRegister"
+                android:id="@+id/cancelUpdate"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:clickable="true"
-                android:contentDescription="@string/cancelRegister"
+                android:contentDescription="@string/cancelUpdate"
                 android:src="@android:drawable/button_onoff_indicator_on"
                 android:translationX="70dp"
                 android:translationY="-30dp"
