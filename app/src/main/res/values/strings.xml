@@ -11,4 +11,9 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tool">Herramienta:</string>
+    <string name="description">Descripción:</string>
+    <string name="price">Precio:</string>
+    <string name="addTool">Agregar heramienta</string>
+    <string name="cancelRegister">CancelarRegistro</string>
 </resources>
