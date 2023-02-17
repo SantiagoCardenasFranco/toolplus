@@ -10,4 +10,6 @@
     <color name="coffee">#4DC1770A</color>
     <color name="orange">#80FFCB12</color>
     <color name="yellow">#B3FFEB3B</color>
+    <color name="green">#05EC0F</color>
+    <color name="dark_green">#078F0D</color>
 </resources>

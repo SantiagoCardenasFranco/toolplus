@@ -30,7 +30,7 @@
 
         <LinearLayout
             android:layout_marginTop="10dp"
-            android:layout_width="300dp"
+            android:layout_width="350dp"
             android:layout_height="400dp"
             android:background="@drawable/background_register"
             android:gravity="center"
@@ -38,18 +38,25 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="116dp"
-                android:layout_height="63dp"
+                android:layout_width="wrap_content"
+                android:layout_height="91dp"
+                android:contentDescription="@string/imageTool"
+
                 tools:src="@tools:sample/avatars" />
 
             <EditText
                 android:id="@+id/nameToolRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
                 android:autofillHints="Destornillador"
+                android:background="@drawable/edge_layout"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"
                 android:hint="@string/tool"
                 android:inputType="text"
                 android:textColor="#fff"
@@ -59,10 +66,15 @@
                 android:id="@+id/descriptionToolRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
                 android:hint="@string/description"
+                android:background="@drawable/edge_layout"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"
                 android:inputType="text"
                 android:textColor="#fff"
                 android:textColorHint="#fff"
@@ -72,10 +84,15 @@
                 android:id="@+id/priceToolRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
                 android:hint="@string/price"
+                android:background="@drawable/edge_layout"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"
                 android:inputType="number"
                 android:textColor="#fff"
                 android:textColorHint="#fff"
@@ -88,9 +105,11 @@
                 android:clickable="true"
                 android:contentDescription="@string/addTool"
                 android:src="@android:drawable/ic_input_add"
+                android:tint="#000000"
                 android:translationX="-70dp"
                 android:translationY="24dp"
-                app:backgroundTint="#CC18CA1F" />
+                app:backgroundTint="#CC18CA1F"
+                app:rippleColor="#000000" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/cancelRegister"
@@ -99,6 +118,7 @@
                 android:clickable="true"
                 android:contentDescription="@string/cancelRegister"
                 android:src="@android:drawable/button_onoff_indicator_on"
+                android:tint="#000000"
                 android:translationX="70dp"
                 android:translationY="-30dp"
                 app:backgroundTint="#CCFFB300" />

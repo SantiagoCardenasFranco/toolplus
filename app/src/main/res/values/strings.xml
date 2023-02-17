@@ -20,4 +20,5 @@
     <string name="cancelUpdate">Cancelar Actualización</string>
     <string name="register">Registro de herramientas</string>
     <string name="update">Actualización de herramientas</string>
+    <string name="imageTool">Imagen para la herramienta</string>
 </resources>
