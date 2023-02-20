@@ -29,9 +29,9 @@
             android:translationY="-50dp" />
 
         <LinearLayout
-            android:layout_marginTop="10dp"
             android:layout_width="350dp"
-            android:layout_height="400dp"
+            android:layout_height="457dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/background_register"
             android:gravity="center"
             android:orientation="vertical">
@@ -53,12 +53,12 @@
                 android:layout_marginBottom="10dp"
                 android:autofillHints="Destornillador"
                 android:background="@drawable/edge_layout"
-                android:paddingStart="20dp"
-                android:paddingEnd="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="5dp"
                 android:hint="@string/tool"
                 android:inputType="text"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp"
                 android:textColor="#fff"
                 android:textColorHint="#fff" />
 
@@ -69,16 +69,16 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="10dp"
-                android:hint="@string/description"
+                android:autofillHints="Descripción"
                 android:background="@drawable/edge_layout"
-                android:paddingStart="20dp"
-                android:paddingEnd="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="5dp"
+                android:hint="@string/description"
                 android:inputType="text"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp"
                 android:textColor="#fff"
-                android:textColorHint="#fff"
-                android:autofillHints="Descripción" />
+                android:textColorHint="#fff" />
 
             <EditText
                 android:id="@+id/priceToolRegister"
@@ -87,16 +87,34 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="10dp"
-                android:hint="@string/price"
+                android:autofillHints="0"
                 android:background="@drawable/edge_layout"
-                android:paddingStart="20dp"
-                android:paddingEnd="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="5dp"
+                android:hint="@string/price"
                 android:inputType="number"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp"
                 android:textColor="#fff"
-                android:textColorHint="#fff"
-                android:autofillHints="0" />
+                android:textColorHint="#fff" />
+
+            <EditText
+                android:id="@+id/countToolRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                android:autofillHints="0"
+                android:background="@drawable/edge_layout"
+                android:hint="@string/count"
+                android:inputType="number"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp"
+                android:textColor="#fff"
+                android:textColorHint="#fff" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/addRegister"
