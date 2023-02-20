@@ -5,3 +5,5 @@ f
 6app/src/main/java/com/uco/pdm/toolplus/MainActivity.kt,1\4\143ffa24229a1eec4e7164b2f41d9d412b65cb39
 n
 >app/src/main/java/com/uco/pdm/toolplus/RegisterToolFragment.kt,8\1\8134f05030520bb05489a599c7810821a051721b
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e

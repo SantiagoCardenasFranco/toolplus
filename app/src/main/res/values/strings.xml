@@ -21,5 +21,6 @@
     <string name="register">Registro de herramientas</string>
     <string name="update">Actualización de herramientas</string>
     <string name="imageTool">Imagen para la herramienta</string>
+    <string name="count">Cantidad:</string>
     <string name="alertDialogText">¿Desea realizar esta acción?</string>
 </resources>
