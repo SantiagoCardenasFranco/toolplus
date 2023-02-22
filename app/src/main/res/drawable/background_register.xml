@@ -16,6 +16,5 @@
 
     <!-- controno - borde-->
     <corners
-        android:topRightRadius="100dp"
-        android:bottomLeftRadius="100dp" />
+        android:topRightRadius="300dp"/>
 </shape>
