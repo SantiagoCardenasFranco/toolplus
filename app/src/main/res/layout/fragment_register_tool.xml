@@ -23,11 +23,12 @@
             android:id="@+id/formRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="serif"
             android:text="@string/register"
             android:textColor="#fff"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:gravity="center"
-            android:translationY="40dp" />
+            android:translationY="50dp"/>
 
         <LinearLayout
             android:layout_width="411dp"
