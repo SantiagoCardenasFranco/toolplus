@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@mipmap/herramientas_varias_wallpaper_preview"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/descriptionImagen" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,19 +43,22 @@
                 android:id="@+id/imageView"
                 android:layout_width="138dp"
                 android:layout_height="116dp"
+                android:layout_marginBottom="8dp"
                 android:contentDescription="@string/imageTool"
-                tools:src="@tools:sample/avatars" />
+                tools:src="@drawable/baseline_add_photo" />
 
             <EditText
                 android:id="@+id/nameToolUpdate"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="15dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="15dp"
                 android:layout_marginBottom="10dp"
                 android:autofillHints="Destornillador"
                 android:background="@drawable/edge_layout"
                 android:hint="@string/tool"
+                android:drawableStart="@drawable/baseline_tool"
+                android:drawablePadding="5dp"
                 android:inputType="text"
                 android:paddingStart="20dp"
                 android:paddingTop="10dp"
@@ -67,12 +71,14 @@
                 android:id="@+id/descriptionToolUpdate"
                 android:layout_width="match_parent"
                 android:layout_height="98dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="15dp"
                 android:layout_marginBottom="10dp"
                 android:autofillHints="Descripción"
                 android:background="@drawable/edge_layout"
                 android:hint="@string/description"
+                android:drawableStart="@drawable/baseline_insert"
+                android:drawablePadding="5dp"
                 android:inputType="text"
                 android:paddingStart="20dp"
                 android:paddingTop="10dp"
@@ -84,13 +90,15 @@
             <EditText
                 android:id="@+id/priceToolUpdate"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="15dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="15dp"
                 android:layout_marginBottom="10dp"
                 android:autofillHints="0"
                 android:background="@drawable/edge_layout"
                 android:hint="@string/price"
+                android:drawableStart="@drawable/baseline_attach_money"
+                android:drawablePadding="5dp"
                 android:inputType="number"
                 android:paddingStart="20dp"
                 android:paddingTop="10dp"
@@ -102,13 +110,15 @@
             <EditText
                 android:id="@+id/countToolUpdate"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="15dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="15dp"
                 android:layout_marginBottom="10dp"
                 android:autofillHints="0"
                 android:background="@drawable/edge_layout"
                 android:hint="@string/count"
+                android:drawableStart="@drawable/baseline_numbers"
+                android:drawablePadding="5dp"
                 android:inputType="number"
                 android:paddingStart="20dp"
                 android:paddingTop="10dp"
@@ -142,10 +152,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <GridView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
 
 </RelativeLayout>
