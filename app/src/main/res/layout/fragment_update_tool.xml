@@ -39,18 +39,20 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imageView"
                 android:layout_width="138dp"
                 android:layout_height="116dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:contentDescription="@string/imageTool"
-                tools:src="@drawable/baseline_add_photo" />
+                app:srcCompat="@drawable/baseline_add_photo"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/roundImageView"/>
 
             <EditText
                 android:id="@+id/nameToolUpdate"
                 android:layout_width="match_parent"
-                android:layout_height="51dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="10dp"
@@ -110,7 +112,7 @@
             <EditText
                 android:id="@+id/countToolUpdate"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="10dp"

@@ -39,13 +39,15 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imageView"
                 android:layout_width="138dp"
                 android:layout_height="116dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:contentDescription="@string/imageTool"
-                tools:src="@drawable/baseline_add_photo"/>
+                app:srcCompat="@drawable/baseline_add_photo"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/roundImageView"/>
 
             <EditText
                 android:id="@+id/nameToolRegister"
