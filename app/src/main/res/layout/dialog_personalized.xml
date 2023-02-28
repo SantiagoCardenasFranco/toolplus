@@ -10,7 +10,8 @@
         android:layout_height="80dp"
         android:background="#5E35B1"
         android:padding="5dp"
-        android:src="@drawable/baseline_warning"/>
+        android:src="@drawable/baseline_warning"
+        android:contentDescription="@string/image_for_dialog" />
 
     <TextView
         android:id="@+id/dialog"
@@ -24,32 +25,29 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:orientation="horizontal">
 
-        <Button
+        <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/btnYes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="82dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:layout_weight="1"
             android:background="#293249"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:text="Si"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"/>
+            android:src="@drawable/baseline_check_box" />
 
-        <Button
+        <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/btnNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="82dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#293249"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
-            android:text="No"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"/>
+            android:src="@drawable/baseline_indeterminate_check_box"
+            android:textAllCaps="false"/>
 
     </LinearLayout>
 

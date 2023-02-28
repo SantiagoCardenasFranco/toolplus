@@ -24,4 +24,7 @@
     <string name="count">Cantidad:</string>
     <string name="alertDialogText">¿Desea realizar esta acción?</string>
     <string name="descriptionImagen">Background</string>
+    <string name="no">No</string>
+    <string name="image_for_dialog">Image for dialog</string>
+    <string name="yes">Si</string>
 </resources>
