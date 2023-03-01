@@ -27,4 +27,7 @@
     <string name="no">No</string>
     <string name="image_for_dialog">Image for dialog</string>
     <string name="yes">Si</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="user">Usuario</string>
+    <string name="password">Contraseña</string>
 </resources>
