@@ -34,6 +34,7 @@ class ToolAdapter (
             val price: TextView
             val btnEdit: Button
             val btnDelete: Button
+            val description: TextView
 
             // R resourses -> Accesos a las carpetas RES
             init {
@@ -43,6 +44,7 @@ class ToolAdapter (
                 price = view.findViewById(R.id.price)
                 btnEdit = view.findViewById(R.id.btnEdit)
                 btnDelete = view.findViewById(R.id.btnDelete)
+                description = view.findViewById(R.id.description)
 
                 //Control de eventos
                 view.setOnClickListener { listener.onItemClick(bindingAdapterPosition) }
@@ -63,6 +65,7 @@ class ToolAdapter (
             holder.nameTool.text = dataset[position].nameTool
             holder.count.text = dataset[position].count
             holder.price.text = dataset[position].price
+            holder.price.text = dataset[position].description
 
         }
 
