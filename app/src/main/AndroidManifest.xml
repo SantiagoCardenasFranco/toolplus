@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Toolplus"
         tools:targetApi="31">
         <activity
+            android:name=".RecyclerViewToolsActivity"
+            android:exported="false" />
+        <activity
             android:name=".FirstActivity"
             android:exported="true"
             android:theme="@style/Theme.Toolplus.NoActionBar">
