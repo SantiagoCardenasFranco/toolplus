@@ -63,8 +63,8 @@ class ToolAdapter (
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.nameTool.text = dataset[position].nameTool
-            holder.count.text = dataset[position].count
-            holder.price.text = dataset[position].price
+            holder.count.text = dataset[position].count.toString()
+            holder.price.text = dataset[position].price.toString()
             holder.price.text = dataset[position].description
 
         }

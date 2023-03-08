@@ -5,6 +5,6 @@ import android.media.MediaCodec.ParameterDescriptor
 data class Tool(
     var nameTool: String,
     var description: String,
-    var count: String,
-    var price: String,
+    var count: Int,
+    var price: Int,
 )

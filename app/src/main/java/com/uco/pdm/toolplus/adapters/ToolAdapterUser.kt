@@ -58,10 +58,11 @@ class ToolAdapterUser (
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         holder.nameTool.text = dataset[position].nameToolUser
-        holder.count.text = dataset[position].countUser
-        holder.price.text = dataset[position].priceUser
-        holder.price.text = dataset[position].descriptionUser
+        holder.count.text = dataset[position].countUser.toString()
+        holder.price.text = dataset[position].priceUser.toString()
+        holder.description.text = dataset[position].descriptionUser
     }
 
     override fun getItemCount(): Int = dataset.size
