@@ -66,7 +66,6 @@ class ToolAdapter (
             holder.count.text = dataset[position].count.toString()
             holder.price.text = dataset[position].price.toString()
             holder.price.text = dataset[position].description
-
         }
 
         override fun getItemCount(): Int = dataset.size

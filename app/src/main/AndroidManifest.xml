@@ -15,12 +15,11 @@
             android:name=".ReciclerViewToolUserActivity"
             android:exported="false" />
         <activity
-            android:name=".RecyclerViewToolsActivity"
+            android:name=".FirstActivity"
             android:exported="false" />
         <activity
-            android:name=".FirstActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Toolplus.NoActionBar">
+            android:name=".RecyclerViewToolsActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
