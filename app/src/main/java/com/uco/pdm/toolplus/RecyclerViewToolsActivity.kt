@@ -1,31 +1,40 @@
 package com.uco.pdm.toolplus
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.StrictMode
+import android.util.AttributeSet
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.uco.pdm.toolplus.adapters.ToolAdapter
 import com.uco.pdm.toolplus.databinding.ActivityRecyclerViewToolsBinding
 import com.uco.pdm.toolplus.models.Tool
 
 class RecyclerViewToolsActivity : AppCompatActivity() {
-    private lateinit var _binding: ActivityRecyclerViewToolsBinding
-    private val binding get() = _binding!!
-    private lateinit var adapter : ToolAdapter
+
+    private lateinit var binding: ActivityRecyclerViewToolsBinding
     val tool = arrayListOf<Tool>()
     override fun onCreate(savedInstanceState: Bundle?) {
-        _binding = ActivityRecyclerViewToolsBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_recycler_view_tools)
+        binding = ActivityRecyclerViewToolsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initTools(tool)
         buildRecyclerview()
     }
+
 
     fun buildRecyclerview(){
         val viewManager = LinearLayoutManager(this.applicationContext)
         val viewAdapter = applicationContext?.let { ToolAdapter(tool, it) }
         binding.toolsAdminRecyclerView.layoutManager = viewManager
         binding.toolsAdminRecyclerView.adapter = viewAdapter
+        viewAdapter?.setOnItemClickListener(object :ToolAdapter.OnItemClickListener{
+            override fun onItemClick(position: Int) {
+                println("clic sobre item "+ position)
+                }
+            }
+        )
     }
 
     fun initTools(tools:ArrayList<Tool>){

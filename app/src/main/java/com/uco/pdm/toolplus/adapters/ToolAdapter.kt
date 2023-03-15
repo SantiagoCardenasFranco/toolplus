@@ -28,23 +28,23 @@ class ToolAdapter (
 
         class ViewHolder(view: View, listener: OnItemClickListener) : RecyclerView.ViewHolder(view) {
 
-            val imageTool: ImageView
             val nameTool: TextView
+         /*   val imageTool: ImageView
             val count: TextView
             val price: TextView
             val btnEdit: Button
             val btnDelete: Button
-            val description: TextView
+            val description: TextView*/
 
             // R resourses -> Accesos a las carpetas RES
             init {
-                imageTool = view.findViewById(R.id.imageTool)
                 nameTool = view.findViewById(R.id.nameTool)
+         /*       imageTool = view.findViewById(R.id.imageTool)
                 count = view.findViewById(R.id.count)
                 price = view.findViewById(R.id.price)
                 btnEdit = view.findViewById(R.id.btnEdit)
                 btnDelete = view.findViewById(R.id.btnDelete)
-                description = view.findViewById(R.id.description)
+                description = view.findViewById(R.id.description)*/
 
                 //Control de eventos
                 view.setOnClickListener { listener.onItemClick(bindingAdapterPosition) }
@@ -63,9 +63,9 @@ class ToolAdapter (
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.nameTool.text = dataset[position].nameTool
-            holder.count.text = dataset[position].count.toString()
+          /*  holder.count.text = dataset[position].count.toString()
             holder.price.text = dataset[position].price.toString()
-            holder.price.text = dataset[position].description
+            holder.price.text = dataset[position].description*/
         }
 
         override fun getItemCount(): Int = dataset.size
