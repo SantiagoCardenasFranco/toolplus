@@ -5,4 +5,5 @@ data class ToolUser(
     var descriptionUser: String,
     var countUser: Int,
     var priceUser: Int,
+    var imageUser: Int
 )

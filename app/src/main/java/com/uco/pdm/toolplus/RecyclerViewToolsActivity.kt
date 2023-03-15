@@ -39,24 +39,27 @@ class RecyclerViewToolsActivity : AppCompatActivity() {
 
     fun initTools(tools:ArrayList<Tool>){
         val tool = Tool(
-            "Destornillador",
-            "Destornillador tipo cruz",
+            "Lapiz",
+            "Tipo 2, color amarillo",
             5,
-            35000
+            35000,
+            R.drawable.baseline_edit
         )
 
         val tool2 = Tool(
             "Martillo",
             "Martillo de mano, no muy grande",
             3,
-            23000
+            23000,
+            R.drawable.baseline_edit
         )
 
         val tool3 = Tool(
             "Alicate",
             "Para tuercas",
             7,
-            43000
+            43000,
+            R.drawable.baseline_edit
         )
 
         val listTool = arrayOf(

@@ -7,15 +7,14 @@
     tools:context=".ReciclerViewToolUserActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:id="@+id/toolsUser"
+        android:id="@+id/toolsUserRecyclerView"
+        android:layout_width="406dp"
+        android:layout_height="605dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        />
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

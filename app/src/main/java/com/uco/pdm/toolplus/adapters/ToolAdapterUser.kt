@@ -28,7 +28,7 @@ class ToolAdapterUser (
 
     class ViewHolder(view: View, listener: OnItemClickListener) : RecyclerView.ViewHolder(view) {
 
-       // val imageTool: ImageView
+        val imageTool: ImageView
         val nameTool: TextView
         val count: TextView
         val price: TextView
@@ -36,7 +36,7 @@ class ToolAdapterUser (
 
         // R resourses -> Accesos a las carpetas RES
         init {
-         //   imageTool = view.findViewById(R.id.imageToolUser)
+            imageTool = view.findViewById(R.id.imageToolUser)
             nameTool = view.findViewById(R.id.nameToolUser)
             count = view.findViewById(R.id.countUser)
             price = view.findViewById(R.id.priceUser)
@@ -58,7 +58,7 @@ class ToolAdapterUser (
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+        holder.imageTool.setImageResource(dataset[position].imageUser)
         holder.nameTool.text = dataset[position].nameToolUser
         holder.count.text = dataset[position].countUser.toString()
         holder.price.text = dataset[position].priceUser.toString()
