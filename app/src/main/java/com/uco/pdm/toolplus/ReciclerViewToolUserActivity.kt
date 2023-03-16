@@ -49,7 +49,7 @@ class ReciclerViewToolUserActivity : AppCompatActivity() {
             "Martillo de mano, no muy grande",
             3,
             23000,
-            R.drawable.baseline_edit
+            R.drawable.martillo
         )
 
         val tool3 = ToolUser(
@@ -57,13 +57,40 @@ class ReciclerViewToolUserActivity : AppCompatActivity() {
             "Para tuercas",
             7,
             43000,
-            R.drawable.baseline_edit
+            R.drawable.alicate
+        )
+
+        val tool4 = ToolUser(
+            "Pulidora",
+            "9 pulgadas a 110 voltios, para todo tipo de disco",
+            19,
+            120000,
+            R.drawable.pulidora
+        )
+
+        val tool5 = ToolUser(
+            "Motosierra",
+            "Para cortas grandes troncos o madera",
+            6,
+            279000,
+            R.drawable.motosierra
+        )
+
+        val tool6 = ToolUser(
+            "Taladro",
+            "Para perforar cualquier tipo de pared de media pulgada",
+            9,
+            20000,
+            R.drawable.taladro
         )
 
         val listTool = arrayOf(
             tool,
             tool2,
-            tool3
+            tool3,
+            tool4,
+            tool5,
+            tool6
         )
         listTool.forEach {
             println("se agregan las siguientes herramientas $it")

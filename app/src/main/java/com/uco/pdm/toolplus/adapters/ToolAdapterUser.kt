@@ -60,8 +60,8 @@ class ToolAdapterUser (
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.imageTool.setImageResource(dataset[position].imageUser)
         holder.nameTool.text = dataset[position].nameToolUser
-        holder.count.text = dataset[position].countUser.toString()
-        holder.price.text = dataset[position].priceUser.toString()
+        holder.count.text = "Unidades: "+dataset[position].countUser.toString()
+        holder.price.text = "Costo: "+dataset[position].priceUser.toString()
         holder.description.text = dataset[position].descriptionUser
     }
 
