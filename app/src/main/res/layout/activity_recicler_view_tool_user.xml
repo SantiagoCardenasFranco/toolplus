@@ -6,10 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".ReciclerViewToolUserActivity">
 
+    <ImageView
+        android:id="@+id/returnActivity"
+        android:layout_width="72dp"
+        android:layout_height="43dp"
+        android:src="@drawable/baseline_keyboard_return"
+        tools:ignore="MissingConstraints,OnClick"
+        android:onClick="retornoUsers"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="3dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/toolsUserRecyclerView"
-        android:layout_width="406dp"
-        android:layout_height="605dp"
+        android:layout_width="405dp"
+        android:layout_height="491dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

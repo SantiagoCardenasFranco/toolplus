@@ -1,5 +1,6 @@
 package com.uco.pdm.toolplus
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,9 +31,15 @@ class ReciclerViewToolUserActivity : AppCompatActivity() {
         binding.toolsUserRecyclerView.adapter = viewAdapter
         viewAdapter?.setOnItemClickListener(object : ToolAdapterUser.OnItemClickListener{
             override fun onItemClick(position: Int) {
+                val user = intent.getStringExtra("EXTRA")
                 println("clic sobre item "+ position)
             }
         })
+    }
+
+    fun retornoUsers(){
+        val intent = Intent(this, FirstActivity::class.java)
+        startActivity(intent)
     }
 
     fun initTools(tools:ArrayList<ToolUser>){

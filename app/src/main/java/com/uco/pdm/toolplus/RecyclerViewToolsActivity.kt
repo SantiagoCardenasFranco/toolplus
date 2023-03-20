@@ -1,16 +1,12 @@
 package com.uco.pdm.toolplus
 
-import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.StrictMode
-import android.util.AttributeSet
-import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.uco.pdm.toolplus.adapters.ToolAdapter
 import com.uco.pdm.toolplus.databinding.ActivityRecyclerViewToolsBinding
 import com.uco.pdm.toolplus.models.Tool
-import com.uco.pdm.toolplus.models.ToolUser
 
 class RecyclerViewToolsActivity : AppCompatActivity() {
 
@@ -30,12 +26,38 @@ class RecyclerViewToolsActivity : AppCompatActivity() {
         val viewAdapter = applicationContext?.let { ToolAdapter(tool, it) }
         binding.toolsAdminRecyclerView.layoutManager = viewManager
         binding.toolsAdminRecyclerView.adapter = viewAdapter
-        viewAdapter?.setOnItemClickListener(object :ToolAdapter.OnItemClickListener{
-            override fun onItemClick(position: Int) {
-                println("clic sobre item "+ position)
-                }
+        viewAdapter?.setOnItemClickListener(object :ToolAdapter.OnbuttonClickListener{
+            override fun onButtonClick(position: Int) {
+                println("dato: " + position)
+                editar(position)
+                eliminar(position)
             }
-        )
+        })
+    }
+    fun editar(position: Int){
+        val fmanager = supportFragmentManager
+        val fmanagertrs = fmanager.beginTransaction()
+        val fragment = UpdateToolFragment()
+
+        val dataBundle = Bundle()
+        dataBundle.putInt("imageView", tool[position].image)
+        dataBundle.putString("nameToolUpdate", tool[position].nameTool)
+        dataBundle.putString("descriptionToolUpdate", tool[position].detail)
+        dataBundle.putInt("priceToolUpdate", tool[position].price)
+        dataBundle.putInt("countToolUpdate", tool[position].count)
+
+        fragment.arguments = dataBundle
+        fmanagertrs.add(R.id.fragmentUpdateTool, fragment).commit()
+    }
+
+    fun retorno(){
+        val intent = Intent(this, FirstActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun eliminar(position: Int){
+        val dataTool = tool
+        dataTool.removeAt(position)
     }
 
     fun initTools(tools:ArrayList<Tool>){

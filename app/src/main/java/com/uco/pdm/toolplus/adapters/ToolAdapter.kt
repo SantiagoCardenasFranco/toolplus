@@ -16,17 +16,17 @@ class ToolAdapter (
     val context: Context
 
     ) : RecyclerView.Adapter<ToolAdapter.ViewHolder>() {
-        private lateinit var mlistener: OnItemClickListener
+        private lateinit var mlistener: OnbuttonClickListener
 
-        interface OnItemClickListener {
-            fun onItemClick(position: Int)
+        interface OnbuttonClickListener {
+            fun onButtonClick(position: Int)
         }
 
-        fun setOnItemClickListener(listener: OnItemClickListener) {
+        fun setOnItemClickListener(listener: OnbuttonClickListener) {
             mlistener = listener
         }
 
-        class ViewHolder(view: View, listener: OnItemClickListener) : RecyclerView.ViewHolder(view) {
+        class ViewHolder(view: View, listener: OnbuttonClickListener) : RecyclerView.ViewHolder(view) {
 
             val nameTool: TextView
             val imageTool: ImageView
@@ -47,7 +47,8 @@ class ToolAdapter (
                 detail = view.findViewById(R.id.description)
 
                 //Control de eventos
-                view.setOnClickListener { listener.onItemClick(bindingAdapterPosition) }
+                btnEdit.setOnClickListener { listener.onButtonClick(bindingAdapterPosition) }
+                //view.setOnClickListener { listener.onItemClick(bindingAdapterPosition) }
             }
 
 
