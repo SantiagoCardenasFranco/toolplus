@@ -3,6 +3,7 @@ package com.uco.pdm.toolplus
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.uco.pdm.toolplus.adapters.ToolAdapter
 import com.uco.pdm.toolplus.databinding.ActivityRecyclerViewToolsBinding
@@ -47,10 +48,10 @@ class RecyclerViewToolsActivity : AppCompatActivity() {
         dataBundle.putInt("countToolUpdate", tool[position].count)
 
         fragment.arguments = dataBundle
-        fmanagertrs.add(R.id.fragmentUpdateTool, fragment).commit()
+        fmanagertrs.add(R.id.elementsRecyclerView, fragment).commit()
     }
 
-    fun retorno(){
+    fun retorno(view: View){
         val intent = Intent(this, FirstActivity::class.java)
         startActivity(intent)
     }

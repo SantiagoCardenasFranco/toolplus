@@ -3,6 +3,7 @@ package com.uco.pdm.toolplus
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.uco.pdm.toolplus.adapters.ToolAdapter
 import com.uco.pdm.toolplus.adapters.ToolAdapterUser
@@ -37,7 +38,7 @@ class ReciclerViewToolUserActivity : AppCompatActivity() {
         })
     }
 
-    fun retornoUsers(){
+    fun retornoUsers(view: View){
         val intent = Intent(this, FirstActivity::class.java)
         startActivity(intent)
     }
