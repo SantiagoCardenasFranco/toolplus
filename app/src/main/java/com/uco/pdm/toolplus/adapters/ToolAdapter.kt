@@ -19,7 +19,8 @@ class ToolAdapter (
         private lateinit var mlistener: OnbuttonClickListener
 
         interface OnbuttonClickListener {
-            fun onButtonClick(position: Int)
+            fun onButtonClickEdit(position: Int)
+            fun onButtonClickDelete(position: Int)
         }
 
         fun setOnItemClickListener(listener: OnbuttonClickListener) {
@@ -47,7 +48,8 @@ class ToolAdapter (
                 detail = view.findViewById(R.id.description)
 
                 //Control de eventos
-                btnEdit.setOnClickListener { listener.onButtonClick(bindingAdapterPosition) }
+                btnEdit.setOnClickListener { listener.onButtonClickEdit(bindingAdapterPosition) }
+                btnDelete.setOnClickListener {listener.onButtonClickDelete(bindingAdapterPosition)}
                 //view.setOnClickListener { listener.onItemClick(bindingAdapterPosition) }
             }
 

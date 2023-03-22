@@ -1,13 +1,16 @@
 package com.uco.pdm.toolplus
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import com.airbnb.lottie.LottieAnimationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -15,7 +18,6 @@ private const val ARG_PARAM2 = "param2"
 class RegisterToolFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
-    lateinit var btnRegister: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,56 +32,38 @@ class RegisterToolFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val rootView :View = inflater.inflate(R.layout.fragment_register_tool, container, false)
+
         // Inflate the layout for this fragment
-        val view:View = inflater.inflate(R.layout.fragment_register_tool, container, false)
-
-        btnRegister = view.findViewById(R.id.addRegister)
-        btnRegister.setOnClickListener(object : View.OnClickListener{
-            override fun onClick(p0: View?) {
-                dialogPersonalized()
-            }
-
-        })
-
-        return view
+        val retornoTools = rootView.findViewById<FloatingActionButton>(R.id.cancelRegister)
+        retornoTools.setOnClickListener {
+            seeDialog()
+        }
+        return rootView
     }
 
-    private fun dialogPersonalized(){
-        val builder:AlertDialog.Builder = AlertDialog.Builder(activity)
-        val inflater:LayoutInflater = layoutInflater
-        val view:View = inflater.inflate(R.layout.dialog_personalized, null)
-
+    private fun seeDialog(){
+        val builder = AlertDialog.Builder(activity)
+        val inflater = layoutInflater
+        val view = inflater.inflate(R.layout.dialog_personalized, null)
         builder.setView(view)
 
-        val dialog:AlertDialog = builder.create()
+        val dialog = builder.create()
         dialog.show()
 
-        val btnYes:LottieAnimationView = view.findViewById(R.id.btnYes)
-        btnYes.setOnClickListener(object : View.OnClickListener{
-            override fun onClick(p0: View?) {
-                //Realiza tarea
-                dialog.dismiss()
-            }
-        })
-
-        val btnNo:LottieAnimationView = view.findViewById(R.id.btnNo)
-        btnNo.setOnClickListener(object : View.OnClickListener{
-            override fun onClick(p1: View?) {
-                //Realiza tarea
-                dialog.dismiss()
-            }
-        })
-    }
-
-    /*private fun animation(imageView: LottieAnimationView, animation: Int, action:Boolean){
-        if (action){
-            imageView.setAnimation(animation)
-            imageView.playAnimation()
-        }else{
-            imageView.setAnimation(animation)
-            imageView.playAnimation()
+        val btnYes = view.findViewById<LottieAnimationView>(R.id.btnYes)
+        btnYes.setOnClickListener {
+            Toast.makeText(activity, "Se canceló la operación...", Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
+            val intent = Intent(activity, RecyclerViewToolsActivity::class.java)
+            startActivity(intent)
         }
-    }*/
 
+        val btnNo = view.findViewById<LottieAnimationView>(R.id.btnNo)
+        btnNo.setOnClickListener {
+            Toast.makeText(activity, "Se reaunuda la operación...", Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
 
+        }
+    }
 }

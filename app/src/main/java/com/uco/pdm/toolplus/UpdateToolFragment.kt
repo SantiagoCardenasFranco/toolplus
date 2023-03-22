@@ -1,6 +1,7 @@
 package com.uco.pdm.toolplus
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.imageview.ShapeableImageView
 
@@ -58,10 +61,34 @@ class UpdateToolFragment : Fragment() {
 
         val retornoTools = rootView.findViewById<FloatingActionButton>(R.id.cancelUpdate)
         retornoTools.setOnClickListener {
+            seeDialog()
+        }
+
+        return rootView
+    }
+
+    private fun seeDialog(){
+        val builder = AlertDialog.Builder(activity)
+        val inflater = layoutInflater
+        val view = inflater.inflate(R.layout.dialog_personalized, null)
+        builder.setView(view)
+
+        val dialog = builder.create()
+        dialog.show()
+
+        val btnYes = view.findViewById<LottieAnimationView>(R.id.btnYes)
+        btnYes.setOnClickListener {
+            Toast.makeText(activity, "Se canceló la operación...", Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
             val intent = Intent(activity, RecyclerViewToolsActivity::class.java)
             startActivity(intent)
         }
 
-        return rootView
+        val btnNo = view.findViewById<LottieAnimationView>(R.id.btnNo)
+        btnNo.setOnClickListener {
+            Toast.makeText(activity, "Se reaunuda la operación...", Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
+
+        }
     }
 }

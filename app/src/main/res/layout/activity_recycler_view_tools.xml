@@ -17,6 +17,17 @@
         tools:layout_editor_absoluteX="3dp"
         tools:layout_editor_absoluteY="3dp" />
 
+    <ImageView
+        android:id="@+id/addNewTool"
+        android:layout_width="72dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="256dp"
+        android:src="@drawable/baseline_add"
+        app:layout_constraintStart_toEndOf="@+id/returnActivity"
+        tools:ignore="MissingConstraints,OnClick"
+        android:onClick="addMoreTool"
+        tools:layout_editor_absoluteY="2dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/toolsAdminRecyclerView"
         android:layout_width="411dp"

@@ -32,7 +32,6 @@ class ReciclerViewToolUserActivity : AppCompatActivity() {
         binding.toolsUserRecyclerView.adapter = viewAdapter
         viewAdapter?.setOnItemClickListener(object : ToolAdapterUser.OnItemClickListener{
             override fun onItemClick(position: Int) {
-                val user = intent.getStringExtra("EXTRA")
                 println("clic sobre item "+ position)
             }
         })

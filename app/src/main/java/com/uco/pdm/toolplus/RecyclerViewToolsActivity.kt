@@ -1,10 +1,13 @@
 package com.uco.pdm.toolplus
 
+import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.airbnb.lottie.LottieAnimationView
 import com.uco.pdm.toolplus.adapters.ToolAdapter
 import com.uco.pdm.toolplus.databinding.ActivityRecyclerViewToolsBinding
 import com.uco.pdm.toolplus.models.Tool
@@ -28,9 +31,13 @@ class RecyclerViewToolsActivity : AppCompatActivity() {
         binding.toolsAdminRecyclerView.layoutManager = viewManager
         binding.toolsAdminRecyclerView.adapter = viewAdapter
         viewAdapter?.setOnItemClickListener(object :ToolAdapter.OnbuttonClickListener{
-            override fun onButtonClick(position: Int) {
+            override fun onButtonClickEdit(position: Int) {
                 println("dato: " + position)
                 editar(position)
+            }
+
+            override fun onButtonClickDelete(position: Int) {
+                println("dato: " + position)
                 eliminar(position)
             }
         })
@@ -56,9 +63,37 @@ class RecyclerViewToolsActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun addMoreTool(view: View){
+        val fmanager = supportFragmentManager
+        val fmanagertrs = fmanager.beginTransaction()
+        val fragment = RegisterToolFragment()
+        fmanagertrs.add(R.id.elementsRecyclerView, fragment).commit()
+    }
+
     fun eliminar(position: Int){
-        val dataTool = tool
-        dataTool.removeAt(position)
+        seeDialog()
+    }
+
+    fun seeDialog(){
+        val builder = AlertDialog.Builder(this)
+        val inflater = layoutInflater
+        val view = inflater.inflate(R.layout.dialog_personalized, null)
+        builder.setView(view)
+
+        val dialog = builder.create()
+        dialog.show()
+
+        val btnYes = view.findViewById<LottieAnimationView>(R.id.btnYes)
+        btnYes.setOnClickListener {
+            Toast.makeText(this.applicationContext, "Se eliminó", Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
+        }
+
+        val btnNo = view.findViewById<LottieAnimationView>(R.id.btnNo)
+        btnNo.setOnClickListener {
+            Toast.makeText(this.applicationContext, "Se cancela operación", Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
+        }
     }
 
     fun initTools(tools:ArrayList<Tool>){
