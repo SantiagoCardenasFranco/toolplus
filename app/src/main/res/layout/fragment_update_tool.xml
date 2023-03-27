@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentUpdateTool"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UpdateToolFragment">
@@ -40,7 +41,7 @@
             android:orientation="vertical">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imageView"
+                android:id="@+id/imageViewTool"
                 android:layout_width="138dp"
                 android:layout_height="116dp"
                 android:layout_marginBottom="16dp"
@@ -67,7 +68,7 @@
                 android:paddingEnd="10dp"
                 android:paddingBottom="5dp"
                 android:textColor="#fff"
-                android:textColorHint="#fff" />
+                android:textColorHint="#fff"/>
 
             <EditText
                 android:id="@+id/descriptionToolUpdate"
@@ -76,18 +77,22 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="10dp"
+                android:autoText="true"
+                android:maxLines="3"
                 android:autofillHints="Descripción"
                 android:background="@drawable/edge_layout"
-                android:hint="@string/description"
                 android:drawableStart="@drawable/baseline_insert"
                 android:drawablePadding="5dp"
-                android:inputType="text"
+                android:hint="@string/description"
+                android:inputType="textLongMessage|text"
                 android:paddingStart="20dp"
                 android:paddingTop="10dp"
                 android:paddingEnd="10dp"
                 android:paddingBottom="5dp"
+                android:singleLine="false"
                 android:textColor="#fff"
-                android:textColorHint="#fff" />
+                android:textColorHint="#fff"
+                tools:ignore="Deprecated" />
 
             <EditText
                 android:id="@+id/priceToolUpdate"
@@ -146,6 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:clickable="true"
+                android:onClick="retornoTools"
                 android:contentDescription="@string/cancelUpdate"
                 android:src="@android:drawable/button_onoff_indicator_on"
                 android:translationX="70dp"

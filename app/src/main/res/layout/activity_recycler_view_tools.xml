@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/elementsRecyclerView"
+    android:layout_height="match_parent"
+    tools:context=".RecyclerViewToolsActivity">
+
+    <ImageView
+        android:id="@+id/returnActivity"
+        android:layout_width="72dp"
+        android:layout_height="43dp"
+        android:src="@drawable/baseline_keyboard_return"
+        tools:ignore="MissingConstraints,OnClick"
+        android:onClick="retorno"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="3dp" />
+
+    <ImageView
+        android:id="@+id/addNewTool"
+        android:layout_width="72dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="256dp"
+        android:src="@drawable/baseline_add"
+        app:layout_constraintStart_toEndOf="@+id/returnActivity"
+        tools:ignore="MissingConstraints,OnClick"
+        android:onClick="addMoreTool"
+        tools:layout_editor_absoluteY="2dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/toolsAdminRecyclerView"
+        android:layout_width="411dp"
+        android:layout_height="501dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

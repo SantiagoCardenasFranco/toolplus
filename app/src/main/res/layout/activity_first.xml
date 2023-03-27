@@ -4,9 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundv2"
-    android:padding="10dp"
     tools:context=".FirstActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/herramientas_varias_wallpaper_preview"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/descriptionImagen" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:gravity="center"
+        android:orientation="vertical"/>
 
     <TextView
         android:id="@+id/tvtitle"
@@ -17,7 +29,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:text="Iniciar Sesión"
+        android:text="@string/login"
         android:textColor="@color/white"
         android:textSize="35sp"
         android:textStyle="bold" />
@@ -39,7 +51,7 @@
             android:id="@+id/edusername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Usuario"
+            android:hint="@string/user"
             android:inputType="text"
             android:textColor="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -62,7 +74,7 @@
             android:id="@+id/edcontra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Contraseña"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:textColor="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>

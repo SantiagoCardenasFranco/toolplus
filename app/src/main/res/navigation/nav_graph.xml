@@ -7,9 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.uco.pdm.toolplus.FirstFragment"
-        android:label="Hello word"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/activity_first">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
@@ -17,9 +15,8 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.uco.pdm.toolplus.SecondFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_register_tool">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"

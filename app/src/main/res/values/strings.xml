@@ -24,5 +24,14 @@
     <string name="count">Cantidad:</string>
     <string name="alertDialogText">¿Desea realizar esta acción?</string>
     <string name="descriptionImagen">Background</string>
+<<<<<<< HEAD
     <string name="days">Dias</string>
+=======
+    <string name="no">No</string>
+    <string name="image_for_dialog">Image for dialog</string>
+    <string name="yes">Si</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="user">Usuario</string>
+    <string name="password">Contraseña</string>
+>>>>>>> a5049963e4f45071227f7df339e2115f6ca6718d
 </resources>
