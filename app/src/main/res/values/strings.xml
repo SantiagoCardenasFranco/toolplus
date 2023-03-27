@@ -24,4 +24,5 @@
     <string name="count">Cantidad:</string>
     <string name="alertDialogText">¿Desea realizar esta acción?</string>
     <string name="descriptionImagen">Background</string>
+    <string name="days">Dias</string>
 </resources>

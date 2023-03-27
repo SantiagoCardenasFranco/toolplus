@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PreBill">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <!-- El codigo del fondo siempre va primero -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/herramientas_varias_wallpaper_preview"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/descriptionImagen" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:gravity="center"
+        android:orientation="vertical"/>
+    <TextView
+        android:id="@+id/tittle"
+        android:layout_width="233dp"
+        android:layout_height="44dp"
+        android:text="Pre-factura"
+        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteY="2dp"
+        android:textColor="@color/white"/>
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
