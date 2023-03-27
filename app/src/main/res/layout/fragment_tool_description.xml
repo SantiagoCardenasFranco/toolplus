@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/toolDescriptionUser"
     android:layout_height="match_parent"
     android:background="#80000000"
     tools:context=".ToolDescription">
@@ -21,7 +22,9 @@
         android:layout_height="match_parent"
         android:background="#80000000"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="-35dp">
 
         <TextView
             android:id="@+id/toolName"
@@ -55,10 +58,10 @@
             tools:layout_editor_absoluteY="219dp" />
 
         <TextView
-            android:id="@+id/TextnumberOfDays"
+            android:id="@+id/TextnumberOfTools"
             android:layout_width="104dp"
             android:layout_height="42dp"
-            android:text="Numero de dias"
+            android:text="Numero de herrameintas"
             android:textColor="@color/white"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="43dp"
@@ -78,7 +81,7 @@
             android:id="@+id/numberOfDays"
             android:layout_width="130dp"
             android:layout_height="40dp"
-            android:hint="@string/days"
+            android:hint="Dias de alquiler"
             android:inputType="number"
             android:textColor="#fff"
             android:textColorHint="#fff"
@@ -87,12 +90,11 @@
             tools:layout_editor_absoluteY="445dp" />
 
 
-
         <TextView
             android:id="@+id/fullValueOfTool"
             android:layout_width="166dp"
             android:layout_height="38dp"
-            android:text="Valor de dias de herramienta"
+            android:text="Valor total"
             android:textColor="@color/white"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="203dp"

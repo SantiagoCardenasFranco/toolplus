@@ -51,7 +51,7 @@ class ToolDescription : Fragment() {
         val nameTool = rootView.findViewById<TextView>(R.id.toolName)
         val descriptionTool = rootView.findViewById<TextView>(R.id.toolDescription)
         val princeTool = rootView.findViewById<TextView>(R.id.toolPrice)
-        val countTool = rootView.findViewById<TextView>(R.id.TextnumberOfDays)
+        val countTool = rootView.findViewById<TextView>(R.id.TextnumberOfTools)
 
         //val days = rootView.find ViewById<EditText>(R.id.numberOfDays).toString()
         //val totalPrice = rootView.findViewById<TextView>(R.id.fullValueOfTool)
@@ -70,12 +70,14 @@ class ToolDescription : Fragment() {
         }*/
         val retornoTools = rootView.findViewById<Button>(R.id.ContinueButton)
         retornoTools.setOnClickListener {
-            seeDialog()
+            if (name != null && description != null) {
+                seeDialog(name, description, price, count)
+            }
         }
         return rootView
     }
 
-    private fun seeDialog(){
+    private fun seeDialog(name: String, description: String, price: Int, count:Int){
         val builder = AlertDialog.Builder(activity)
         val inflater = layoutInflater
         val view = inflater.inflate(R.layout.dialog_personalized, null)
@@ -90,6 +92,20 @@ class ToolDescription : Fragment() {
             seeSubDialog()
             dialog.dismiss()
 
+            val fmanager = activity?.supportFragmentManager
+            val fmanagertrs = fmanager?.beginTransaction()
+            val fragment = PreBill()
+
+            val dataBundle = Bundle()
+            dataBundle.putString("nameToolUpdate", name)
+            dataBundle.putString("descriptionToolUpdate", description)
+            dataBundle.putInt("priceToolUpdate", price)
+            dataBundle.putInt("countToolUpdate", count)
+
+            fragment.arguments = dataBundle
+            fmanagertrs?.replace(R.id.toolDescriptionUser, fragment)
+            fmanagertrs?.addToBackStack(null)
+            fmanagertrs?.commit()
 
         }
 

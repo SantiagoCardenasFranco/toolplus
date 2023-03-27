@@ -19,17 +19,30 @@
         android:layout_height="match_parent"
         android:background="#80000000"
         android:gravity="center"
-        android:orientation="vertical">
+        android:textAlignment="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-16dp">
 
         <TextView
-            android:id="@+id/TextnumberOfDays"
+            android:id="@+id/tittle"
+            android:layout_width="374dp"
+            android:layout_height="43dp"
+            android:text="Prefactura "
+            android:textColor="@color/white"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="21dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <TextView
+            android:id="@+id/TextnumberOfToolsPreBill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Numero de dias"
+            android:text="Numeros de herramientas"
             android:textColor="@color/white" />
 
         <TextView
-            android:id="@+id/toolDescription"
+            android:id="@+id/toolDescriptionPreBill"
             android:layout_width="345dp"
             android:layout_height="47dp"
             android:text="Descripcion Herramienta"
@@ -49,58 +62,49 @@
             android:text="Valor total"
             android:textColor="@color/white" />
 
+
+        <EditText
+            android:id="@+id/numberOfDays"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:hint="@string/days"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="445dp" />
+
+        <TextView
+            android:id="@+id/fullValueOfTool"
+            android:layout_width="166dp"
+            android:layout_height="38dp"
+            android:text="Valor de dias de herramienta"
+            android:textColor="@color/white"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="203dp"
+            tools:layout_editor_absoluteY="445dp" />
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/design_default_color_secondary_variant"
+            android:text="Volver"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="538dp" />
+
+        <Button
+            android:id="@+id/ContinueButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/design_default_color_secondary_variant"
+            android:text="Continuar"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="275dp"
+            tools:layout_editor_absoluteY="538dp" />
+
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tittle"
-        android:layout_width="374dp"
-        android:layout_height="43dp"
-        android:text="Prefactura "
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="16dp"
-        android:textColor="@color/white"
-        tools:ignore="MissingConstraints" />
-
-
-    <EditText
-        android:id="@+id/numberOfDays"
-        android:layout_width="130dp"
-        android:layout_height="40dp"
-        android:textColor="#fff"
-        android:hint="@string/days"
-        android:textColorHint="#fff"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="445dp"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/fullValueOfTool"
-        android:layout_width="166dp"
-        android:layout_height="38dp"
-        android:text="Valor de dias de herramienta"
-        tools:layout_editor_absoluteX="203dp"
-        tools:layout_editor_absoluteY="445dp"
-        android:textColor="@color/white"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Volver"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="538dp"
-        android:backgroundTint="@color/design_default_color_secondary_variant"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/ContinueButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Continuar"
-        tools:layout_editor_absoluteX="275dp"
-        tools:layout_editor_absoluteY="538dp"
-        android:backgroundTint="@color/design_default_color_secondary_variant"
-        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
