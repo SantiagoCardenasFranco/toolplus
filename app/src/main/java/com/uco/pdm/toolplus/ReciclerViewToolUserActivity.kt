@@ -11,6 +11,7 @@ import com.uco.pdm.toolplus.databinding.ActivityReciclerViewToolUserBinding
 import com.uco.pdm.toolplus.databinding.ActivityRecyclerViewToolsBinding
 import com.uco.pdm.toolplus.models.Tool
 import com.uco.pdm.toolplus.models.ToolUser
+import java.text.FieldPosition
 
 class ReciclerViewToolUserActivity : AppCompatActivity() {
 
@@ -33,8 +34,24 @@ class ReciclerViewToolUserActivity : AppCompatActivity() {
         viewAdapter?.setOnItemClickListener(object : ToolAdapterUser.OnItemClickListener{
             override fun onItemClick(position: Int) {
                 println("clic sobre item "+ position)
+                descriptionToolUser(position)
             }
         })
+    }
+
+    private fun descriptionToolUser(position: Int){
+        val fmanager = supportFragmentManager
+        val fmanagertrs = fmanager.beginTransaction()
+        val fragment = ToolDescription()
+        val dataBundle = Bundle()
+        dataBundle.putInt("imageView", tool[position].imageUser)
+        dataBundle.putString("nameToolUpdate", tool[position].nameToolUser)
+        dataBundle.putString("descriptionToolUpdate", tool[position].descriptionUser)
+        dataBundle.putInt("priceToolUpdate", tool[position].priceUser)
+        dataBundle.putInt("countToolUpdate", tool[position].countUser)
+
+        fragment.arguments = dataBundle
+        fmanagertrs.add(R.id.elementsRecyclerViewUser, fragment).commit()
     }
 
     fun retornoUsers(view: View){

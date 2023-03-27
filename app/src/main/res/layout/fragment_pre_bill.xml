@@ -58,7 +58,8 @@
         android:text="Prefactura "
         tools:layout_editor_absoluteX="21dp"
         tools:layout_editor_absoluteY="16dp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        tools:ignore="MissingConstraints" />
 
 
     <EditText
@@ -70,7 +71,7 @@
         android:textColorHint="#fff"
         tools:layout_editor_absoluteX="42dp"
         tools:layout_editor_absoluteY="445dp"
-        />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/fullValueOfTool"
@@ -80,7 +81,7 @@
         tools:layout_editor_absoluteX="203dp"
         tools:layout_editor_absoluteY="445dp"
         android:textColor="@color/white"
-        />
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/backButton"
@@ -89,7 +90,8 @@
         android:text="Volver"
         tools:layout_editor_absoluteX="42dp"
         tools:layout_editor_absoluteY="538dp"
-        android:backgroundTint="@color/design_default_color_secondary_variant"/>
+        android:backgroundTint="@color/design_default_color_secondary_variant"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/ContinueButton"
@@ -98,7 +100,7 @@
         android:text="Continuar"
         tools:layout_editor_absoluteX="275dp"
         tools:layout_editor_absoluteY="538dp"
-        android:backgroundTint="@color/design_default_color_secondary_variant"/>
+        android:backgroundTint="@color/design_default_color_secondary_variant"
+        tools:ignore="MissingConstraints" />
 
-
-
+</androidx.constraintlayout.widget.ConstraintLayout>
