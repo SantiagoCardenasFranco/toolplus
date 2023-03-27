@@ -53,7 +53,7 @@ class ToolDescription : Fragment() {
         val princeTool = rootView.findViewById<TextView>(R.id.toolPrice)
         val countTool = rootView.findViewById<TextView>(R.id.TextnumberOfDays)
 
-        //val days = rootView.findViewById<EditText>(R.id.numberOfDays).toString()
+        //val days = rootView.find ViewById<EditText>(R.id.numberOfDays).toString()
         //val totalPrice = rootView.findViewById<TextView>(R.id.fullValueOfTool)
         //val priceOneTool = princeTool.toString()
 
