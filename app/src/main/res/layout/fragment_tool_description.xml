@@ -101,7 +101,7 @@
             tools:layout_editor_absoluteY="445dp" />
 
         <Button
-            android:id="@+id/backButton"
+            android:id="@+id/backButtonDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/design_default_color_secondary_variant"
@@ -111,7 +111,7 @@
             tools:layout_editor_absoluteY="538dp" />
 
         <Button
-            android:id="@+id/ContinueButton"
+            android:id="@+id/ContinueButtonDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/design_default_color_secondary_variant"

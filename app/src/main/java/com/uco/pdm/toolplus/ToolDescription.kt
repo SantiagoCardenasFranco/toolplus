@@ -32,7 +32,7 @@ class ToolDescription : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    @SuppressLint("MissingInflatedId", "SetTextI18n")
+    @SuppressLint("MissingInflatedId", "SetTextI18n", "CutPasteId")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -68,11 +68,17 @@ class ToolDescription : Fragment() {
             val total = days.toInt() * priceOneTool.toInt()
             totalPrice.text = "El precio a pagar es: $total"
         }*/
-        val retornoTools = rootView.findViewById<Button>(R.id.ContinueButton)
-        retornoTools.setOnClickListener {
+        val preBill = rootView.findViewById<Button>(R.id.ContinueButtonDescription)
+        preBill.setOnClickListener {
             if (name != null && description != null) {
                 seeDialog(name, description, price, count)
             }
+        }
+
+        val returnRecycler = rootView.findViewById<Button>(R.id.backButtonDescription)
+        returnRecycler.setOnClickListener {
+            val intent = Intent(activity, ReciclerViewToolUserActivity::class.java)
+            startActivity(intent)
         }
         return rootView
     }
@@ -113,9 +119,6 @@ class ToolDescription : Fragment() {
         btnNo.setOnClickListener {
             Toast.makeText(activity, "Se canceló la operación...", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
-            val intent = Intent(activity, ReciclerViewToolUserActivity::class.java)
-            startActivity(intent)
-
         }
     }
 

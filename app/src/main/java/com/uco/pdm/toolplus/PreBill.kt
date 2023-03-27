@@ -31,7 +31,7 @@ class PreBill : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView : View = inflater.inflate(R.layout.fragment_tool_description, container, false)
+        val rootView : View = inflater.inflate(R.layout.fragment_pre_bill, container, false)
 
         /*val dataBundle = arguments
         val name = dataBundle!!.getString("nameToolUpdate")
