@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,9 +13,12 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@mipmap/herramientas_varias_wallpaper_preview"
+        android:contentDescription="@string/descriptionImagen"
         android:scaleType="centerCrop"
-        android:contentDescription="@string/descriptionImagen" />
+        android:src="@mipmap/herramientas_varias_wallpaper_preview"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-16dp" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,8 +32,10 @@
         android:layout_width="347dp"
         android:layout_height="52dp"
         android:text="PRE-FACTURA"
+        android:gravity="center"
         tools:layout_editor_absoluteX="32dp"
         tools:layout_editor_absoluteY="5dp"
+        android:textSize="35sp"
         android:textColor="#fff"
         android:textColorHint="#fff"/>
 
@@ -39,6 +45,7 @@
         android:layout_width="38dp"
         android:layout_height="25dp"
         android:text="Dias"
+        android:background="@drawable/stylo_bordes"
         tools:layout_editor_absoluteX="216dp"
         tools:layout_editor_absoluteY="71dp"
         android:textColor="#fff"
@@ -49,6 +56,7 @@
         android:layout_width="38dp"
         android:layout_height="25dp"
         android:text="Valor"
+        android:background="@drawable/stylo_bordes"
         tools:layout_editor_absoluteX="281dp"
         tools:layout_editor_absoluteY="71dp"
         android:textColor="#fff"
@@ -99,7 +107,8 @@
         android:id="@+id/toolDays1"
         android:layout_width="32dp"
         android:layout_height="25dp"
-        android:text="dias"
+        android:text="dias1"
+        android:background="@drawable/stylo_bordes"
         tools:layout_editor_absoluteX="216dp"
         tools:layout_editor_absoluteY="114dp"
         android:textColor="#fff"
@@ -109,7 +118,8 @@
         android:id="@+id/toolDays2"
         android:layout_width="32dp"
         android:layout_height="25dp"
-        android:text="dias"
+        android:text="dias2"
+        android:background="@drawable/stylo_bordes"
         tools:layout_editor_absoluteX="216dp"
         tools:layout_editor_absoluteY="174dp"
         android:textColor="#fff"
@@ -119,7 +129,8 @@
         android:id="@+id/toolDays3"
         android:layout_width="32dp"
         android:layout_height="25dp"
-        android:text="dias"
+        android:text="dias3"
+        android:background="@drawable/stylo_bordes"
         tools:layout_editor_absoluteX="216dp"
         tools:layout_editor_absoluteY="234dp"
         android:textColor="#fff"
@@ -129,7 +140,8 @@
         android:id="@+id/toolDays4"
         android:layout_width="32dp"
         android:layout_height="25dp"
-        android:text="dias"
+        android:text="dias4"
+        android:background="@drawable/stylo_bordes"
         tools:layout_editor_absoluteX="216dp"
         tools:layout_editor_absoluteY="294dp"
         android:textColor="#fff"
@@ -140,8 +152,10 @@
         android:layout_width="80dp"
         android:layout_height="25dp"
         android:text="Total1"
+        android:background="@drawable/stylo_bordes"
         tools:layout_editor_absoluteX="265dp"
         tools:layout_editor_absoluteY="114dp"
+        android:gravity="center"
         android:textColor="#fff"
         android:textColorHint="#fff"/>
 
@@ -150,8 +164,10 @@
         android:layout_width="80dp"
         android:layout_height="25dp"
         android:text="Total2"
+        android:background="@drawable/stylo_bordes"
         tools:layout_editor_absoluteX="265dp"
         tools:layout_editor_absoluteY="174dp"
+        android:gravity="center"
         android:textColor="#fff"
         android:textColorHint="#fff"/>
 
@@ -160,8 +176,10 @@
         android:layout_width="80dp"
         android:layout_height="25dp"
         android:text="Total3"
+        android:background="@drawable/stylo_bordes"
         tools:layout_editor_absoluteX="265dp"
         tools:layout_editor_absoluteY="234dp"
+        android:gravity="center"
         android:textColor="#fff"
         android:textColorHint="#fff"/>
 
@@ -170,64 +188,36 @@
         android:layout_width="80dp"
         android:layout_height="25dp"
         android:text="Total4"
+        android:background="@drawable/stylo_bordes"
         tools:layout_editor_absoluteX="265dp"
         tools:layout_editor_absoluteY="294dp"
+        android:gravity="center"
         android:textColor="#fff"
         android:textColorHint="#fff"/>
 
-    <Button
-        android:id="@+id/ToolCancel1"
-        android:layout_width="40dp"
-        android:layout_height="30dp"
-        android:text="X"
-        android:backgroundTint="#EC0528"
-        tools:layout_editor_absoluteX="358dp"
-        tools:layout_editor_absoluteY="114dp" />
-
-    <Button
-        android:id="@+id/ToolCancel2"
-        android:layout_width="40dp"
-        android:layout_height="30dp"
-        android:text="X"
-        android:backgroundTint="#EC0528"
-        tools:layout_editor_absoluteX="358dp"
-        tools:layout_editor_absoluteY="174dp" />
-
-    <Button
-        android:id="@+id/ToolCancel3"
-        android:layout_width="40dp"
-        android:layout_height="30dp"
-        android:text="X"
-        android:backgroundTint="#EC0528"
-        tools:layout_editor_absoluteX="358dp"
-        tools:layout_editor_absoluteY="234dp" />
-
-    <Button
-        android:id="@+id/ToolCancel4"
-        android:layout_width="40dp"
-        android:layout_height="30dp"
-        android:text="X"
-        android:backgroundTint="#EC0528"
-        tools:layout_editor_absoluteX="358dp"
-        tools:layout_editor_absoluteY="294dp" />
 
     <TextView
         android:id="@+id/textTotal"
-        android:layout_width="87dp"
+        android:layout_width="179dp"
         android:layout_height="32dp"
-        android:text="Total"
-        tools:layout_editor_absoluteX="106dp"
-        tools:layout_editor_absoluteY="446dp"
+        android:gravity="center"
+        android:text="Total a pagar:"
         android:textColor="#fff"
-        android:textColorHint="#fff"/>
+        android:textColorHint="#fff"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="445dp" />
 
     <TextView
         android:id="@+id/totalValue"
         android:layout_width="134dp"
         android:layout_height="32dp"
         android:text="$Valor Total"
+        android:background="@drawable/edge_layout_2"
         tools:layout_editor_absoluteX="234dp"
         tools:layout_editor_absoluteY="445dp"
+        android:gravity="center"
+        android:textSize="20sp"
         android:textColor="#fff"
         android:textColorHint="#fff"/>
 
@@ -235,7 +225,7 @@
     <Button
         android:id="@+id/buttonContinue"
         android:layout_width="115dp"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
         android:text="Finalizar Compra"
         android:backgroundTint="@color/dark_green"
         tools:layout_editor_absoluteX="280dp"
@@ -244,13 +234,47 @@
     <Button
         android:id="@+id/buttonCancel"
         android:layout_width="115dp"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
         android:text="Cancelar"
         android:backgroundTint="#EC0528"
         tools:layout_editor_absoluteX="32dp"
         tools:layout_editor_absoluteY="525dp" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#E91E1E"
+        android:src="@drawable/baseline_delete"
+        app:fabSize="mini"
+        tools:layout_editor_absoluteX="345dp"
+        tools:layout_editor_absoluteY="173dp" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#E91E1E"
+        android:src="@drawable/baseline_delete"
+        app:fabSize="mini"
+        tools:layout_editor_absoluteX="345dp"
+        tools:layout_editor_absoluteY="293dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="42dp"
+        android:layout_height="41dp"
+        android:backgroundTint="#E91E1E"
+        android:src="@drawable/baseline_delete"
+        app:fabSize="mini"
+        tools:layout_editor_absoluteX="344dp"
+        tools:layout_editor_absoluteY="234dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#E91E1E"
+        android:src="@drawable/baseline_delete"
+        app:fabSize="mini"
+        tools:layout_editor_absoluteX="345dp"
+        tools:layout_editor_absoluteY="112dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
