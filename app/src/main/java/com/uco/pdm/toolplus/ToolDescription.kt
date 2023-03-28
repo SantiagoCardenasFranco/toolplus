@@ -51,7 +51,7 @@ class ToolDescription : Fragment() {
         val nameTool = rootView.findViewById<TextView>(R.id.toolName)
         val descriptionTool = rootView.findViewById<TextView>(R.id.toolDescription)
         val princeTool = rootView.findViewById<TextView>(R.id.toolPrice)
-        val countTool = rootView.findViewById<TextView>(R.id.TextnumberOfTools)
+        val countTool = rootView.findViewById<TextView>(R.id.TextNumberOfTools)
 
         //val days = rootView.find ViewById<EditText>(R.id.numberOfDays).toString()
         //val totalPrice = rootView.findViewById<TextView>(R.id.fullValueOfTool)
@@ -59,10 +59,10 @@ class ToolDescription : Fragment() {
 
 
         imageTool.setImageResource(image)
-        nameTool.text = "La herraimenta se llama: $name"
+        nameTool.text = name
         descriptionTool.text = description
-        princeTool.text = "La herramienta cuesta: $price"
-        countTool.text = "Cantidad de herramientas: $count"
+        princeTool.text = price.toString()
+        countTool.text = count.toString()
 
         /*if(days != null){
             val total = days.toInt() * priceOneTool.toInt()
@@ -100,7 +100,7 @@ class ToolDescription : Fragment() {
 
             val fmanager = activity?.supportFragmentManager
             val fmanagertrs = fmanager?.beginTransaction()
-            val fragment = PreBill()
+            val fragment = pre_bill_2()
 
             val dataBundle = Bundle()
             dataBundle.putString("nameToolUpdate", name)
@@ -112,7 +112,6 @@ class ToolDescription : Fragment() {
             fmanagertrs?.replace(R.id.toolDescriptionUser, fragment)
             fmanagertrs?.addToBackStack(null)
             fmanagertrs?.commit()
-
         }
 
         val btnNo = view.findViewById<LottieAnimationView>(R.id.btnNo)
@@ -122,6 +121,7 @@ class ToolDescription : Fragment() {
         }
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun seeSubDialog() {
         val builderSubDialog = AlertDialog.Builder(activity)
             builderSubDialog.setTitle("¿Estas seguro?")

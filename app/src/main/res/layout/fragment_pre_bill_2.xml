@@ -25,256 +25,301 @@
         android:layout_height="match_parent"
         android:background="#80000000"
         android:gravity="center"
-        android:orientation="vertical"/>
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tittle"
-        android:layout_width="347dp"
-        android:layout_height="52dp"
-        android:text="PRE-FACTURA"
-        android:gravity="center"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="5dp"
-        android:textSize="35sp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"/>
-
-
-    <TextView
-        android:id="@+id/numberOfDays"
-        android:layout_width="38dp"
-        android:layout_height="25dp"
-        android:text="Dias"
-        android:background="@drawable/stylo_bordes"
-        tools:layout_editor_absoluteX="216dp"
-        tools:layout_editor_absoluteY="71dp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"/>
-
-    <TextView
-        android:id="@+id/value"
-        android:layout_width="38dp"
-        android:layout_height="25dp"
-        android:text="Valor"
-        android:background="@drawable/stylo_bordes"
-        tools:layout_editor_absoluteX="281dp"
-        tools:layout_editor_absoluteY="71dp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"/>
-
-    <TextView
-        android:id="@+id/tool1"
-        android:layout_width="187dp"
-        android:layout_height="25dp"
-        android:text="Herramienta1"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="114dp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"/>
+        <TextView
+            android:id="@+id/tittle"
+            android:layout_width="347dp"
+            android:layout_height="52dp"
+            android:gravity="center"
+            android:text="PRE-FACTURA"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:textSize="35sp"
+            android:translationY="29dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="32dp"
+            tools:layout_editor_absoluteY="5dp" />
 
 
-    <TextView
-        android:id="@+id/tool2"
-        android:layout_width="187dp"
-        android:layout_height="25dp"
-        android:text="Herramienta2"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="174dp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"/>
+        <TextView
+            android:id="@+id/numberOfDays"
+            android:layout_width="38dp"
+            android:layout_height="25dp"
+            android:background="@drawable/stylo_bordes"
+            android:text="Dias"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:translationX="40dp"
+            android:translationY="35dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="216dp"
+            tools:layout_editor_absoluteY="71dp" />
 
-    <TextView
-        android:id="@+id/tool3"
-        android:layout_width="187dp"
-        android:layout_height="25dp"
-        android:text="Herramienta3"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="234dp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"/>
+        <TextView
+            android:id="@+id/value"
+            android:layout_width="38dp"
+            android:layout_height="25dp"
+            android:background="@drawable/stylo_bordes"
+            android:text="Valor"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:translationX="100dp"
+            android:translationY="10dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="281dp"
+            tools:layout_editor_absoluteY="71dp" />
 
-    <TextView
-        android:id="@+id/tool4"
-        android:layout_width="187dp"
-        android:layout_height="25dp"
-        android:text="Herramienta4"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="294dp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"/>
-
-    <TextView
-        android:id="@+id/toolDays1"
-        android:layout_width="32dp"
-        android:layout_height="25dp"
-        android:text="dias1"
-        android:background="@drawable/stylo_bordes"
-        tools:layout_editor_absoluteX="216dp"
-        tools:layout_editor_absoluteY="114dp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"/>
-
-    <TextView
-        android:id="@+id/toolDays2"
-        android:layout_width="32dp"
-        android:layout_height="25dp"
-        android:text="dias2"
-        android:background="@drawable/stylo_bordes"
-        tools:layout_editor_absoluteX="216dp"
-        tools:layout_editor_absoluteY="174dp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"/>
-
-    <TextView
-        android:id="@+id/toolDays3"
-        android:layout_width="32dp"
-        android:layout_height="25dp"
-        android:text="dias3"
-        android:background="@drawable/stylo_bordes"
-        tools:layout_editor_absoluteX="216dp"
-        tools:layout_editor_absoluteY="234dp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"/>
-
-    <TextView
-        android:id="@+id/toolDays4"
-        android:layout_width="32dp"
-        android:layout_height="25dp"
-        android:text="dias4"
-        android:background="@drawable/stylo_bordes"
-        tools:layout_editor_absoluteX="216dp"
-        tools:layout_editor_absoluteY="294dp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"/>
-
-    <TextView
-        android:id="@+id/toolTotal1"
-        android:layout_width="80dp"
-        android:layout_height="25dp"
-        android:text="Total1"
-        android:background="@drawable/stylo_bordes"
-        tools:layout_editor_absoluteX="265dp"
-        tools:layout_editor_absoluteY="114dp"
-        android:gravity="center"
-        android:textColor="#fff"
-        android:textColorHint="#fff"/>
-
-    <TextView
-        android:id="@+id/toolTotal2"
-        android:layout_width="80dp"
-        android:layout_height="25dp"
-        android:text="Total2"
-        android:background="@drawable/stylo_bordes"
-        tools:layout_editor_absoluteX="265dp"
-        tools:layout_editor_absoluteY="174dp"
-        android:gravity="center"
-        android:textColor="#fff"
-        android:textColorHint="#fff"/>
-
-    <TextView
-        android:id="@+id/toolTotal3"
-        android:layout_width="80dp"
-        android:layout_height="25dp"
-        android:text="Total3"
-        android:background="@drawable/stylo_bordes"
-        tools:layout_editor_absoluteX="265dp"
-        tools:layout_editor_absoluteY="234dp"
-        android:gravity="center"
-        android:textColor="#fff"
-        android:textColorHint="#fff"/>
-
-    <TextView
-        android:id="@+id/toolTotal4"
-        android:layout_width="80dp"
-        android:layout_height="25dp"
-        android:text="Total4"
-        android:background="@drawable/stylo_bordes"
-        tools:layout_editor_absoluteX="265dp"
-        tools:layout_editor_absoluteY="294dp"
-        android:gravity="center"
-        android:textColor="#fff"
-        android:textColorHint="#fff"/>
+        <TextView
+            android:id="@+id/tool1"
+            android:layout_width="187dp"
+            android:layout_height="25dp"
+            android:text="Herramienta1"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:translationX="-80dp"
+            android:translationY="10dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="114dp" />
 
 
-    <TextView
-        android:id="@+id/textTotal"
-        android:layout_width="179dp"
-        android:layout_height="32dp"
-        android:gravity="center"
-        android:text="Total a pagar:"
-        android:textColor="#fff"
-        android:textColorHint="#fff"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="445dp" />
+        <TextView
+            android:id="@+id/tool2"
+            android:layout_width="187dp"
+            android:layout_height="25dp"
+            android:text="Herramienta2"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:translationX="-80dp"
+            android:translationY="20dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="174dp" />
 
-    <TextView
-        android:id="@+id/totalValue"
-        android:layout_width="134dp"
-        android:layout_height="32dp"
-        android:text="$Valor Total"
-        android:background="@drawable/edge_layout_2"
-        tools:layout_editor_absoluteX="234dp"
-        tools:layout_editor_absoluteY="445dp"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"/>
+        <TextView
+            android:id="@+id/tool3"
+            android:layout_width="187dp"
+            android:layout_height="25dp"
+            android:text="Herramienta3"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:translationX="-80dp"
+            android:translationY="30dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="234dp" />
+
+        <TextView
+            android:id="@+id/tool4"
+            android:layout_width="187dp"
+            android:layout_height="25dp"
+            android:text="Herramienta4"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:translationX="-80dp"
+            android:translationY="40dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="294dp" />
+
+        <TextView
+            android:id="@+id/toolDays1"
+            android:layout_width="32dp"
+            android:layout_height="25dp"
+            android:background="@drawable/stylo_bordes"
+            android:text="dias1"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:translationX="40dp"
+            android:translationY="-90dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="216dp"
+            tools:layout_editor_absoluteY="114dp" />
+
+        <TextView
+            android:id="@+id/toolDays2"
+            android:layout_width="32dp"
+            android:layout_height="25dp"
+            android:background="@drawable/stylo_bordes"
+            android:text="dias2"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:translationX="40dp"
+            android:translationY="-80dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="216dp"
+            tools:layout_editor_absoluteY="174dp" />
+
+        <TextView
+            android:id="@+id/toolDays3"
+            android:layout_width="32dp"
+            android:layout_height="25dp"
+            android:background="@drawable/stylo_bordes"
+            android:text="dias3"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:translationX="40dp"
+            android:translationY="-70dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="216dp"
+            tools:layout_editor_absoluteY="234dp" />
+
+        <TextView
+            android:id="@+id/toolDays4"
+            android:layout_width="32dp"
+            android:layout_height="25dp"
+            android:background="@drawable/stylo_bordes"
+            android:text="dias4"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:translationX="40dp"
+            android:translationY="-60dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="216dp"
+            tools:layout_editor_absoluteY="294dp" />
+
+        <TextView
+            android:id="@+id/toolTotal1"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:background="@drawable/stylo_bordes"
+            android:gravity="center"
+            android:text="Total1"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:translationX="100dp"
+            android:translationY="-190dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="265dp"
+            tools:layout_editor_absoluteY="114dp" />
+
+        <TextView
+            android:id="@+id/toolTotal2"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:background="@drawable/stylo_bordes"
+            android:gravity="center"
+            android:text="Total2"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:translationX="100dp"
+            android:translationY="-180dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="265dp"
+            tools:layout_editor_absoluteY="174dp" />
+
+        <TextView
+            android:id="@+id/toolTotal3"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:background="@drawable/stylo_bordes"
+            android:gravity="center"
+            android:text="Total3"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:translationX="100dp"
+            android:translationY="-170dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="265dp"
+            tools:layout_editor_absoluteY="234dp" />
+
+        <TextView
+            android:id="@+id/toolTotal4"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:background="@drawable/stylo_bordes"
+            android:gravity="center"
+            android:text="Total4"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:translationX="100dp"
+            android:translationY="-160dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="265dp"
+            tools:layout_editor_absoluteY="294dp" />
 
 
-    <Button
-        android:id="@+id/buttonContinue"
-        android:layout_width="115dp"
-        android:layout_height="55dp"
-        android:text="Finalizar Compra"
-        android:backgroundTint="@color/dark_green"
-        tools:layout_editor_absoluteX="280dp"
-        tools:layout_editor_absoluteY="525dp" />
+        <TextView
+            android:id="@+id/textTotal"
+            android:layout_width="179dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:text="Total a pagar:"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:textSize="20sp"
+            android:translationX="-80dp"
+            android:translationY="-70dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="48dp"
+            tools:layout_editor_absoluteY="445dp" />
 
-    <Button
-        android:id="@+id/buttonCancel"
-        android:layout_width="115dp"
-        android:layout_height="55dp"
-        android:text="Cancelar"
-        android:backgroundTint="#EC0528"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="525dp" />
+        <TextView
+            android:id="@+id/totalValue"
+            android:layout_width="134dp"
+            android:layout_height="32dp"
+            android:background="@drawable/edge_layout_2"
+            android:gravity="center"
+            android:text="$Valor Total"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:textSize="20sp"
+            android:translationX="80dp"
+            android:translationY="-102dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="234dp"
+            tools:layout_editor_absoluteY="445dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#E91E1E"
-        android:src="@drawable/baseline_delete"
-        app:fabSize="mini"
-        tools:layout_editor_absoluteX="345dp"
-        tools:layout_editor_absoluteY="173dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#E91E1E"
-        android:src="@drawable/baseline_delete"
-        app:fabSize="mini"
-        tools:layout_editor_absoluteX="345dp"
-        tools:layout_editor_absoluteY="293dp" />
+        <Button
+            android:id="@+id/buttonContinue"
+            android:layout_width="115dp"
+            android:layout_height="55dp"
+            android:backgroundTint="@color/dark_green"
+            android:text="Finalizar Compra"
+            android:translationY="-60dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="280dp"
+            tools:layout_editor_absoluteY="525dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="42dp"
-        android:layout_height="41dp"
-        android:backgroundTint="#E91E1E"
-        android:src="@drawable/baseline_delete"
-        app:fabSize="mini"
-        tools:layout_editor_absoluteX="344dp"
-        tools:layout_editor_absoluteY="234dp" />
+        <Button
+            android:id="@+id/buttonCancel"
+            android:layout_width="115dp"
+            android:layout_height="55dp"
+            android:backgroundTint="#EC0528"
+            android:text="Cancelar"
+            android:translationY="-60dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="32dp"
+            tools:layout_editor_absoluteY="525dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#E91E1E"
-        android:src="@drawable/baseline_delete"
-        app:fabSize="mini"
-        tools:layout_editor_absoluteX="345dp"
-        tools:layout_editor_absoluteY="112dp" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:backgroundTint="#E91E1E"
+            android:src="@drawable/baseline_delete"
+            android:translationX="170dp"
+            android:translationY="-460dp"
+            app:fabSize="mini"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="345dp"
+            tools:layout_editor_absoluteY="173dp" />
 
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="42dp"
+            android:layout_height="41dp"
+            android:backgroundTint="#E91E1E"
+            android:src="@drawable/baseline_delete"
+            android:translationX="170dp"
+            android:translationY="-440dp"
+            app:fabSize="mini"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="344dp"
+            tools:layout_editor_absoluteY="234dp" />
+
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
