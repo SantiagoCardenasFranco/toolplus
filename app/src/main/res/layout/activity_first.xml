@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/loginUser"
     android:layout_height="match_parent"
     tools:context=".FirstActivity">
 
@@ -113,6 +114,7 @@
         android:gravity="center">
         <!--boton registrar cuenta -->
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/registerData"
             android:layout_width="160dp"
             android:layout_height="50dp"
             android:layout_margin="5dp"

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.uco.pdm.toolplus.adapters.ToolAdapter
 import com.uco.pdm.toolplus.adapters.ToolAdapterUser
@@ -17,6 +18,8 @@ class ReciclerViewToolUserActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityReciclerViewToolUserBinding
     val tool = arrayListOf<ToolUser>()
+    var dataUser = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityReciclerViewToolUserBinding.inflate(layoutInflater)
@@ -24,6 +27,9 @@ class ReciclerViewToolUserActivity : AppCompatActivity() {
         setContentView(binding.root)
         initTools(tool)
         buildRecyclerview()
+        dataUser = intent.getStringExtra("EMAIL").toString()
+        Toast.makeText(this, "Email del usuario: " + dataUser, Toast.LENGTH_LONG).show()
+
     }
 
     fun buildRecyclerview(){

@@ -44,6 +44,9 @@ class UpdateToolFragment : Fragment() {
         val description = dataBundle.getString("descriptionToolUpdate")
         val price = dataBundle.getInt("priceToolUpdate")
         val count = dataBundle.getInt("countToolUpdate")
+        val user = dataBundle.getString("email")
+        //Toast.makeText(activity, "Email del usuario: " + user, Toast.LENGTH_LONG).show()
+
 
         val imageTool = rootView.findViewById<ShapeableImageView>(R.id.imageViewTool)
         val nameTool = rootView.findViewById<EditText>(R.id.nameToolUpdate)

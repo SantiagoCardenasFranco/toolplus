@@ -16,12 +16,15 @@ class RecyclerViewToolsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRecyclerViewToolsBinding
     val tool = arrayListOf<Tool>()
+    var dataUser = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRecyclerViewToolsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initTools(tool)
         buildRecyclerview()
+        dataUser = intent.getStringExtra("EMAIL").toString()
+        Toast.makeText(this, "Email del usuario: " + dataUser, Toast.LENGTH_LONG).show()
     }
 
 
@@ -53,6 +56,7 @@ class RecyclerViewToolsActivity : AppCompatActivity() {
         dataBundle.putString("descriptionToolUpdate", tool[position].detail)
         dataBundle.putInt("priceToolUpdate", tool[position].price)
         dataBundle.putInt("countToolUpdate", tool[position].count)
+        dataBundle.putString("email", dataUser)
 
         fragment.arguments = dataBundle
         fmanagertrs.add(R.id.elementsRecyclerView, fragment).commit()
