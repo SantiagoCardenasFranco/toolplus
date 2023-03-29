@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <ImageView
         android:layout_width="match_parent"
@@ -25,7 +28,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="70dp"
         android:orientation="horizontal">
 
         <com.airbnb.lottie.LottieAnimationView
@@ -36,6 +39,8 @@
             android:layout_marginRight="30dp"
             android:layout_weight="1"
             android:background="#293249"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/confirmed_tick"
             android:src="@drawable/baseline_check_box" />
 
         <com.airbnb.lottie.LottieAnimationView
@@ -46,6 +51,8 @@
             android:background="#293249"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/bouncy_fail"
             android:src="@drawable/baseline_indeterminate_check_box"
             android:textAllCaps="false"/>
 

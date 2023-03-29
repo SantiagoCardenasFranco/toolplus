@@ -100,6 +100,7 @@ class RecyclerViewToolsActivity : AppCompatActivity() {
         }
     }
 
+
     fun initTools(tools:ArrayList<Tool>){
         val tool = Tool(
             "Lapiz",

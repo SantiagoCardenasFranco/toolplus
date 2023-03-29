@@ -80,6 +80,8 @@ class UpdateToolFragment : Fragment() {
         btnYes.setOnClickListener {
             Toast.makeText(activity, "Se canceló la operación...", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
+            btnYes.setAnimation(R.raw.confirmed_tick)
+            btnYes.playAnimation()
             val intent = Intent(activity, RecyclerViewToolsActivity::class.java)
             startActivity(intent)
         }
