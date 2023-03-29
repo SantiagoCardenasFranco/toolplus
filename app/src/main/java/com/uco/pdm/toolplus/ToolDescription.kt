@@ -68,12 +68,26 @@ class ToolDescription : Fragment() {
             val total = days.toInt() * priceOneTool.toInt()
             totalPrice.text = "El precio a pagar es: $total"
         }*/
+        val buiderDialog = AlertDialog.Builder(activity)
+
         val preBill = rootView.findViewById<Button>(R.id.ContinueButtonDescription)
         preBill.setOnClickListener {
-            if (name != null && description != null) {
-                seeDialog(name, description, price, count)
-            }
-        }
+                buiderDialog.setTitle("¿Desea realizar más compras?")
+                    .setPositiveButton("Continuar"){dialogInterface, it ->
+                        dialogInterface.dismiss()
+                        seeDialog()
+                    }
+                    .setNegativeButton("No comprar"){dialogInterface, it ->
+                        dialogInterface.dismiss()
+                        val intent = Intent(activity, ReciclerViewToolUserActivity::class.java)
+                        startActivity(intent)
+                    }
+                    .setNeutralButton("Cancelar"){dialogInterface, it ->
+                        dialogInterface.dismiss()
+                        Toast.makeText(activity, "Se cancela comprar del producto", Toast.LENGTH_SHORT).show()
+                    }
+                    .show()
+                }
 
         val returnRecycler = rootView.findViewById<Button>(R.id.backButtonDescription)
         returnRecycler.setOnClickListener {
@@ -83,7 +97,7 @@ class ToolDescription : Fragment() {
         return rootView
     }
 
-    private fun seeDialog(name: String, description: String, price: Int, count:Int){
+    fun seeDialog(){
         val builder = AlertDialog.Builder(activity)
         val inflater = layoutInflater
         val view = inflater.inflate(R.layout.dialog_personalized, null)
@@ -94,45 +108,20 @@ class ToolDescription : Fragment() {
 
         val btnYes = view.findViewById<LottieAnimationView>(R.id.btnYes)
         btnYes.setOnClickListener {
-            Toast.makeText(activity, "Se realizó la operación...", Toast.LENGTH_SHORT).show()
-            seeSubDialog()
+            Toast.makeText(activity, "Se realizará prefactura", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
-
+            //fragment
             val fmanager = activity?.supportFragmentManager
             val fmanagertrs = fmanager?.beginTransaction()
             val fragment = pre_bill_2()
-
-            val dataBundle = Bundle()
-            dataBundle.putString("nameToolUpdate", name)
-            dataBundle.putString("descriptionToolUpdate", description)
-            dataBundle.putInt("priceToolUpdate", price)
-            dataBundle.putInt("countToolUpdate", count)
-
-            fragment.arguments = dataBundle
-            fmanagertrs?.replace(R.id.toolDescriptionUser, fragment)
-            fmanagertrs?.addToBackStack(null)
-            fmanagertrs?.commit()
+            fmanagertrs?.add(R.id.toolDescriptionUser, fragment)?.commit()
         }
 
         val btnNo = view.findViewById<LottieAnimationView>(R.id.btnNo)
         btnNo.setOnClickListener {
-            Toast.makeText(activity, "Se canceló la operación...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, "Se cancela prefactura", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
         }
     }
 
-    @SuppressLint("SuspiciousIndentation")
-    private fun seeSubDialog() {
-        val builderSubDialog = AlertDialog.Builder(activity)
-            builderSubDialog.setTitle("¿Estas seguro?")
-            builderSubDialog.setPositiveButton("Si") {dialogInterface, which ->
-                Toast.makeText(activity, "Se realiza la acción", Toast.LENGTH_SHORT).show()
-                dialogInterface.dismiss()
-                //fragment
-            }
-            builderSubDialog.setNegativeButton("No") {dialogInterface, which ->
-                Toast.makeText(activity, "Se cancela la acción", Toast.LENGTH_SHORT).show()
-                dialogInterface.dismiss()
-            }
-    }
 }

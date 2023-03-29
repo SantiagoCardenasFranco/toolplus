@@ -34,39 +34,32 @@ class Fragment_Seven_Reg_User : Fragment() {
     ): View? {
 
         val rootView = inflater.inflate(R.layout.fragment__seven__reg__user, container, false)
-        val email = rootView.findViewById<EditText?>(R.id.editTextTextEmailAddress2).toString()
-        val rol = rootView.findViewById<EditText?>(R.id.editTextTextPersonName2).toString()
-        val pass = rootView.findViewById<EditText>(R.id.editTextTextPassword2).toString()
-
-        val createUser = rootView.findViewById<Button>(R.id.buttonCreate)
-        createUser.setOnClickListener {
-            val intent = Intent(activity, FirstActivity::class.java).apply {
-                putExtra("email", email)
-                putExtra("rol", rol)
-                putExtra("pass", pass)
-            }
+        crear(rootView)
+        val returnLogin = rootView.findViewById<Button>(R.id.button2)
+        returnLogin.setOnClickListener {
+            val intent = Intent(activity, FirstActivity::class.java)
             startActivity(intent)
         }
+
+
         return rootView
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Fragment_Seven_Reg_User.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Fragment_Seven_Reg_User().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    fun crear(view: View){
+        val email = view.findViewById<EditText?>(R.id.editTextTextEmailAddress2)
+        val rol = view.findViewById<EditText?>(R.id.editTextTextPersonName2)
+        val pass = view.findViewById<EditText>(R.id.editTextTextPassword2)
+
+        val createUser = view.findViewById<Button>(R.id.buttonCreate)
+        createUser.setOnClickListener {
+            val intent = Intent(activity, FirstActivity::class.java).apply {
+                putExtra("email", email.text.toString())
+                putExtra("rol", rol.text.toString())
+                putExtra("pass", pass.text.toString())
             }
+            startActivity(intent)
+        }
     }
+
+
 }

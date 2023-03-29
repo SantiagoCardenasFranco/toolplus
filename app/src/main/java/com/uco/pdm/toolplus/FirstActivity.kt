@@ -13,7 +13,6 @@ class FirstActivity : AppCompatActivity() {
     var email = ""
     var rol = ""
     var passw = ""
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first)
@@ -21,28 +20,36 @@ class FirstActivity : AppCompatActivity() {
         rol = intent.getStringExtra("rol").toString()
         passw = intent.getStringExtra("pass").toString()
 
-        //Toast.makeText(this, "Email del usuario: " + dataUser, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Email del usuario: " + rol + " " + email + " "+ passw, Toast.LENGTH_LONG).show()
 
-        val createUser: Button = findViewById(R.id.registerData)
-        createUser.setOnClickListener {
-            val fmanager = supportFragmentManager
-            val fmanagertrs = fmanager.beginTransaction()
-            val fragment = Fragment_Seven_Reg_User()
+        val user: EditText = findViewById(R.id.edusername)
+        val pass: EditText = findViewById(R.id.edcontra)
+        user.setText(email)
+        pass.setText(passw)
+    }
 
-            fmanagertrs.add(R.id.loginUser, fragment).commit()
-        }
+    fun RegistroData(view: View){
+        val fmanager = supportFragmentManager
+        val fmanagertrs = fmanager.beginTransaction()
+        val fragment = Fragment_Seven_Reg_User()
+
+        fmanagertrs.add(R.id.loginUser, fragment).commit()
     }
 
     fun entrar(view: View){
-        if(rol == "admin"){
+        val user: EditText = findViewById(R.id.edusername)
+        val pass: EditText = findViewById(R.id.edcontra)
+        user.setText(email)
+        pass.setText(passw)
+        if((user.text.toString() == "admin" && pass.text.toString() == "admin") || rol == "admin"){
             val intent = Intent(this, RecyclerViewToolsActivity::class.java).apply {
                 putExtra("EMAIL", email)
             }
             startActivity(intent)
 
-        }else if(rol == "user"){
+        }else if((user.text.toString() == "client" && pass.text.toString() == "123")|| rol == "user"){
             val intent = Intent(this, ReciclerViewToolUserActivity::class.java).apply {
-                putExtra("EMAIL", email)
+                putExtra("EMAIL", "client")
             }
             startActivity(intent)
         }else{
