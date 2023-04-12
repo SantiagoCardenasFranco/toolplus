@@ -1,16 +1,20 @@
-package com.uco.pdm.toolplus
+package com.uco.pdm.toolplus.vista.recyclerViewUser
 
 import android.app.AlertDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.airbnb.lottie.LottieAnimationView
+import com.uco.pdm.toolplus.*
 import com.uco.pdm.toolplus.adapters.ToolAdapter
 import com.uco.pdm.toolplus.databinding.ActivityRecyclerViewToolsBinding
 import com.uco.pdm.toolplus.models.Tool
+import com.uco.pdm.toolplus.vista.firstActivity.FirstActivity
+import com.uco.pdm.toolplus.vista.registerToolFragment.RegisterToolFragment
+import com.uco.pdm.toolplus.vista.updateToolFragment.UpdateToolFragment
 
 class RecyclerViewToolsActivity : AppCompatActivity() {
 
@@ -33,7 +37,7 @@ class RecyclerViewToolsActivity : AppCompatActivity() {
         val viewAdapter = applicationContext?.let { ToolAdapter(tool, it) }
         binding.toolsAdminRecyclerView.layoutManager = viewManager
         binding.toolsAdminRecyclerView.adapter = viewAdapter
-        viewAdapter?.setOnItemClickListener(object :ToolAdapter.OnbuttonClickListener{
+        viewAdapter?.setOnItemClickListener(object : ToolAdapter.OnbuttonClickListener{
             override fun onButtonClickEdit(position: Int) {
                 println("dato: " + position)
                 editar(position)

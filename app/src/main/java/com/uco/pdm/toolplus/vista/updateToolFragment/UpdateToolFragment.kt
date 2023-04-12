@@ -1,27 +1,20 @@
-package com.uco.pdm.toolplus
+package com.uco.pdm.toolplus.vista.updateToolFragment
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.imageview.ShapeableImageView
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-/**
- * A simple [Fragment] subclass.
- * Use the [UpdateToolFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+import com.uco.pdm.toolplus.R
+import com.uco.pdm.toolplus.vista.recyclerViewUser.RecyclerViewToolsActivity
 
 class UpdateToolFragment : Fragment() {
 

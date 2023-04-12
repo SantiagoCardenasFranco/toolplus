@@ -1,31 +1,22 @@
-package com.uco.pdm.toolplus
+package com.uco.pdm.toolplus.vista.toolDescription
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.airbnb.lottie.LottieAnimationView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.imageview.ShapeableImageView
+import com.uco.pdm.toolplus.R
+import com.uco.pdm.toolplus.vista.prebill.pre_bill_2
+import com.uco.pdm.toolplus.vista.recyclerViewUser.ReciclerViewToolUserActivity
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ToolDescription.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ToolDescription : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,22 +63,22 @@ class ToolDescription : Fragment() {
 
         val preBill = rootView.findViewById<Button>(R.id.ContinueButtonDescription)
         preBill.setOnClickListener {
-                buiderDialog.setTitle("¿Desea realizar más compras?")
-                    .setPositiveButton("Continuar"){dialogInterface, it ->
-                        dialogInterface.dismiss()
-                        seeDialog()
-                    }
-                    .setNegativeButton("No comprar"){dialogInterface, it ->
-                        dialogInterface.dismiss()
-                        val intent = Intent(activity, ReciclerViewToolUserActivity::class.java)
-                        startActivity(intent)
-                    }
-                    .setNeutralButton("Cancelar"){dialogInterface, it ->
-                        dialogInterface.dismiss()
-                        Toast.makeText(activity, "Se cancela comprar del producto", Toast.LENGTH_SHORT).show()
-                    }
-                    .show()
+            buiderDialog.setTitle("¿Desea realizar más compras?")
+                .setPositiveButton("Continuar"){dialogInterface, it ->
+                    dialogInterface.dismiss()
+                    seeDialog()
                 }
+                .setNegativeButton("No comprar"){dialogInterface, it ->
+                    dialogInterface.dismiss()
+                    val intent = Intent(activity, ReciclerViewToolUserActivity::class.java)
+                    startActivity(intent)
+                }
+                .setNeutralButton("Cancelar"){dialogInterface, it ->
+                    dialogInterface.dismiss()
+                    Toast.makeText(activity, "Se cancela comprar del producto", Toast.LENGTH_SHORT).show()
+                }
+                .show()
+        }
 
         val returnRecycler = rootView.findViewById<Button>(R.id.backButtonDescription)
         returnRecycler.setOnClickListener {

@@ -1,18 +1,17 @@
-package com.uco.pdm.toolplus
+package com.uco.pdm.toolplus.vista.recyclerViewUser
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.uco.pdm.toolplus.adapters.ToolAdapter
+import com.uco.pdm.toolplus.R
 import com.uco.pdm.toolplus.adapters.ToolAdapterUser
 import com.uco.pdm.toolplus.databinding.ActivityReciclerViewToolUserBinding
-import com.uco.pdm.toolplus.databinding.ActivityRecyclerViewToolsBinding
-import com.uco.pdm.toolplus.models.Tool
 import com.uco.pdm.toolplus.models.ToolUser
-import java.text.FieldPosition
+import com.uco.pdm.toolplus.vista.firstActivity.FirstActivity
+import com.uco.pdm.toolplus.vista.toolDescription.ToolDescription
 
 class ReciclerViewToolUserActivity : AppCompatActivity() {
 
@@ -130,4 +129,5 @@ class ReciclerViewToolUserActivity : AppCompatActivity() {
         println("AGREGADOS")
 
     }
+
 }
