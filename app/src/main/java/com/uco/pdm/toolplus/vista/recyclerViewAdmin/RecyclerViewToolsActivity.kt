@@ -13,8 +13,8 @@ import com.uco.pdm.toolplus.adapters.ToolAdapter
 import com.uco.pdm.toolplus.databinding.ActivityRecyclerViewToolsBinding
 import com.uco.pdm.toolplus.models.Tool
 import com.uco.pdm.toolplus.vista.firstActivity.FirstActivity
-import com.uco.pdm.toolplus.vista.registerToolFragment.RegisterToolFragment
-import com.uco.pdm.toolplus.vista.updateToolFragment.UpdateToolFragment
+import com.uco.pdm.toolplus.RegisterToolFragment
+import com.uco.pdm.toolplus.UpdateToolFragment
 
 class RecyclerViewToolsActivity : AppCompatActivity() {
 

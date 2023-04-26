@@ -1,4 +1,4 @@
-package com.uco.pdm.toolplus.vista.updateToolFragment
+package com.uco.pdm.toolplus
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.imageview.ShapeableImageView
-import com.uco.pdm.toolplus.R
 import com.uco.pdm.toolplus.vista.recyclerViewUser.RecyclerViewToolsActivity
 
 class UpdateToolFragment : Fragment() {

@@ -1,4 +1,4 @@
-package com.uco.pdm.toolplus.vista.registerToolFragment
+package com.uco.pdm.toolplus
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.uco.pdm.toolplus.R
 import com.uco.pdm.toolplus.vista.recyclerViewUser.RecyclerViewToolsActivity
 
 class RegisterToolFragment : Fragment() {
