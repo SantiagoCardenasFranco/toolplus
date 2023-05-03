@@ -56,11 +56,7 @@ class Fragment_Seven_Reg_User : Fragment() {
             db.usuarioDAO().insertAll(usuario)
             Toast.makeText(context, "Usuario creado", Toast.LENGTH_LONG).show()
 
-            val intent = Intent(activity, FirstActivity::class.java).apply {
-                putExtra("EMAIL", binding.editTextTextEmailAddress2.text.toString())
-                putExtra("PASS", binding.editTextTextPassword2.text.toString())
-                putExtra("ROL", binding.editTextTextPersonName2.text.toString())
-            }
+            val intent = Intent(activity, FirstActivity::class.java)
             startActivity(intent)
 
         }

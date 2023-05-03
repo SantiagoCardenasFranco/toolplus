@@ -12,6 +12,9 @@ interface UsuarioDAO {
     @Query("SELECT * FROM tabla_usuarios")
     fun getAll(): List<Usuario>
 
+    @Query("SELECT * FROM tabla_usuarios WHERE correo = :correo AND password = :password")
+    fun getUser(correo: String, password: String): Usuario
+
     @Insert
     fun insertAll(vararg usuario: Usuario)
 
