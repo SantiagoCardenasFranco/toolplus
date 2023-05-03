@@ -106,6 +106,7 @@ class RecyclerViewToolsActivity : AppCompatActivity() {
 
 
     fun initTools(tools:ArrayList<Tool>){
+
         val tool = Tool(
             "Lapiz",
             "Tipo 2, color amarillo",

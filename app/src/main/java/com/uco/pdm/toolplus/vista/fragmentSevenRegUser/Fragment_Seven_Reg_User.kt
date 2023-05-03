@@ -7,12 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.uco.pdm.toolplus.R
+import com.uco.pdm.toolplus.databinding.FragmentSevenRegUserBinding
+import com.uco.pdm.toolplus.models.Usuario
+import com.uco.pdm.toolplus.persistence.database.AppDatabase
 import com.uco.pdm.toolplus.vista.firstActivity.FirstActivity
 
 class Fragment_Seven_Reg_User : Fragment() {
 
+    private var _binding: FragmentSevenRegUserBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var db: AppDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -22,16 +29,41 @@ class Fragment_Seven_Reg_User : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val rootView = inflater.inflate(R.layout.fragment__seven__reg__user, container, false)
-        crear(rootView)
-        val returnLogin = rootView.findViewById<Button>(R.id.button2)
+        _binding = FragmentSevenRegUserBinding.inflate(inflater, container, false)
+        crear(binding.root)
+        val returnLogin = binding.root.findViewById<Button>(R.id.button2)
         returnLogin.setOnClickListener {
             val intent = Intent(activity, FirstActivity::class.java)
             startActivity(intent)
         }
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?)
+    {
+        super.onViewCreated(view, savedInstanceState)
+        db = AppDatabase.getInstance(context)
+        binding.buttonCreate.setOnClickListener {
+            val usuario = Usuario(
+                binding.editTextTextEmailAddress2.text.toString(),
+                binding.editTextTextPersonName.text.toString(),
+                binding.editTextNumber.text.toString(),
+                binding.editTextPhone.text.toString(),
+                binding.editTextTextPostalAddress.text.toString(),
+                binding.editTextTextPassword2.text.toString(),
+                binding.editTextTextPersonName2.text.toString()
+            )
+            db.usuarioDAO().insertAll(usuario)
+            Toast.makeText(context, "Usuario creado", Toast.LENGTH_LONG).show()
 
-        return rootView
+            val intent = Intent(activity, FirstActivity::class.java).apply {
+                putExtra("EMAIL", binding.editTextTextEmailAddress2.text.toString())
+                putExtra("PASS", binding.editTextTextPassword2.text.toString())
+                putExtra("ROL", binding.editTextTextPersonName2.text.toString())
+            }
+            startActivity(intent)
+
+        }
     }
 
     fun crear(view: View){
