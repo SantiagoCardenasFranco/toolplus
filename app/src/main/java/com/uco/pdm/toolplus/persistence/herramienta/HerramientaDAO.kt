@@ -16,9 +16,12 @@ interface HerramientaDAO {
     @Insert
     fun insertAll(vararg herramientas: Herramientas)
 
-    @Update
-    fun update(herramientas: Herramientas)
+    @Query("UPDATE tabla_herramientas SET nombre = :nombre," +
+            "description = :description, precio = :precio, cantidad = :cantidad," +
+            "url = :url WHERE herramientaId = :id")
+    fun update(nombre: String, description: String, precio: Int, cantidad: Int,
+               url: String, id: Int)
 
-    @Query("DELETE FROM tabla_herramientas")
-    fun deleteAll()
+    @Query("DELETE FROM tabla_herramientas WHERE herramientaId = :id")
+    fun deleteAll(id: Int)
 }

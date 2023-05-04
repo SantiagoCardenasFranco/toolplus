@@ -11,20 +11,24 @@ import com.airbnb.lottie.LottieAnimationView
 import com.uco.pdm.toolplus.*
 import com.uco.pdm.toolplus.adapters.ToolAdapter
 import com.uco.pdm.toolplus.databinding.ActivityRecyclerViewToolsBinding
-import com.uco.pdm.toolplus.models.Tool
 import com.uco.pdm.toolplus.vista.firstActivity.FirstActivity
 import com.uco.pdm.toolplus.RegisterToolFragment
 import com.uco.pdm.toolplus.UpdateToolFragment
+import com.uco.pdm.toolplus.models.Herramientas
+import com.uco.pdm.toolplus.persistence.database.AppDatabase
 
 class RecyclerViewToolsActivity : AppCompatActivity() {
 
+    private lateinit var db: AppDatabase
+
     private lateinit var binding: ActivityRecyclerViewToolsBinding
-    val tool = arrayListOf<Tool>()
+    val tool = arrayListOf<Herramientas>()
     var dataUser = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRecyclerViewToolsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        db = AppDatabase.getInstance(this)
         initTools(tool)
         buildRecyclerview()
         dataUser = intent.getStringExtra("EMAIL").toString()
@@ -55,11 +59,12 @@ class RecyclerViewToolsActivity : AppCompatActivity() {
         val fragment = UpdateToolFragment()
 
         val dataBundle = Bundle()
-        dataBundle.putInt("imageView", tool[position].image)
-        dataBundle.putString("nameToolUpdate", tool[position].nameTool)
-        dataBundle.putString("descriptionToolUpdate", tool[position].detail)
-        dataBundle.putInt("priceToolUpdate", tool[position].price)
-        dataBundle.putInt("countToolUpdate", tool[position].count)
+        dataBundle.putInt("idTool", tool[position].herramientaId)
+        dataBundle.putString("imageView", tool[position].url)
+        dataBundle.putString("nameToolUpdate", tool[position].nombre)
+        dataBundle.putString("descriptionToolUpdate", tool[position].description)
+        tool[position].precio?.let { dataBundle.putInt("priceToolUpdate", it) }
+        tool[position].cantidad?.let { dataBundle.putInt("countToolUpdate", it) }
         dataBundle.putString("email", dataUser)
 
         fragment.arguments = dataBundle
@@ -79,6 +84,7 @@ class RecyclerViewToolsActivity : AppCompatActivity() {
     }
 
     fun eliminar(position: Int){
+        db.herramientaDAO().deleteAll(tool[position].herramientaId)
         seeDialog()
     }
 
@@ -105,69 +111,11 @@ class RecyclerViewToolsActivity : AppCompatActivity() {
     }
 
 
-    fun initTools(tools:ArrayList<Tool>){
+    fun initTools(tools:ArrayList<Herramientas>){
 
-        val tool = Tool(
-            "Lapiz",
-            "Tipo 2, color amarillo",
-            5,
-            35000,
-            R.drawable.baseline_edit
-        )
-
-        val tool2 = Tool(
-            "Martillo",
-            "Martillo de mano, no muy grande",
-            3,
-            23000,
-            R.drawable.martillo
-        )
-
-        val tool3 = Tool(
-            "Alicate",
-            "Para tuercas",
-            7,
-            43000,
-            R.drawable.alicate
-        )
-
-        val tool4 = Tool(
-            "Pulidora",
-            "9 pulgadas a 110 voltios, para todo tipo de disco",
-            19,
-            120000,
-            R.drawable.pulidora
-        )
-
-        val tool5 = Tool(
-            "Motosierra",
-            "Para cortas grandes troncos o madera",
-            6,
-            279000,
-            R.drawable.motosierra
-        )
-
-        val tool6 = Tool(
-            "Taladro",
-            "Para perforar cualquier tipo de pared de media pulgada",
-            9,
-            20000,
-            R.drawable.motosierra
-        )
-
-        val listTool = arrayOf(
-            tool,
-            tool2,
-            tool3,
-            tool4,
-            tool5,
-            tool6
-        )
-        listTool.forEach {
-            println("se agregan las siguientes herramientas $it")
-        }
-
-        tools.addAll(listTool)
+        //val listAllTools: MutableList<Herramientas> = ArrayList()
+        val listAllTools: List<Herramientas> = db.herramientaDAO().getAll()
+        tools.addAll(listAllTools)
         println("AGREGADOS")
 
     }

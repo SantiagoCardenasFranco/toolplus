@@ -15,6 +15,7 @@ import com.uco.pdm.toolplus.databinding.FragmentSevenRegUserBinding
 import com.uco.pdm.toolplus.models.Herramientas
 import com.uco.pdm.toolplus.models.Usuario
 import com.uco.pdm.toolplus.persistence.database.AppDatabase
+import com.uco.pdm.toolplus.vista.firstActivity.FirstActivity
 import com.uco.pdm.toolplus.vista.recyclerViewUser.RecyclerViewToolsActivity
 
 class RegisterToolFragment : Fragment() {
@@ -35,20 +36,37 @@ class RegisterToolFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView : View = inflater.inflate(R.layout.fragment_register_tool, container, false)
+        _binding = FragmentRegisterToolBinding.inflate(inflater, container, false)
 
         // Inflate the layout for this fragment
-        val retornoTools = rootView.findViewById<FloatingActionButton>(R.id.cancelRegister)
+        val retornoTools = binding.root.findViewById<FloatingActionButton>(R.id.cancelRegister)
         retornoTools.setOnClickListener {
             seeDialog()
         }
 
-        val saveTool = rootView.findViewById<FloatingActionButton>(R.id.addRegister)
+        val saveTool = binding.root.findViewById<FloatingActionButton>(R.id.addRegister)
         saveTool.setOnClickListener{
 
             saveToolFun()
         }
-        return rootView
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?)
+    {
+        super.onViewCreated(view, savedInstanceState)
+        db = AppDatabase.getInstance(context)
+        binding.addRegister.setOnClickListener {
+            val herramienta = Herramientas(
+                binding.nameToolRegister.text.toString(),
+                binding.descriptionToolRegister.text.toString(),
+                binding.priceToolRegister.text.toString().toInt(),
+                binding.countToolRegister.text.toString().toInt(),
+                binding.imageView.textAlignment.toString(),
+            )
+            db.herramientaDAO().insertAll(herramienta)
+            Toast.makeText(context, "Herramienta creada", Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun saveToolFun(){

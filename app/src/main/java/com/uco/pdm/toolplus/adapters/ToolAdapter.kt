@@ -9,10 +9,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.uco.pdm.toolplus.R
-import com.uco.pdm.toolplus.models.Tool
+import com.uco.pdm.toolplus.models.Herramientas
 
-class ToolAdapter (
-    private val dataset: ArrayList<Tool>,
+class ToolAdapter(
+    private val dataset: ArrayList<Herramientas>,
     val context: Context
 
     ) : RecyclerView.Adapter<ToolAdapter.ViewHolder>() {
@@ -65,11 +65,11 @@ class ToolAdapter (
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.imageTool.setImageResource(dataset[position].image)
-            holder.nameTool.text = dataset[position].nameTool
-            holder.count.text = dataset[position].count.toString()
-            holder.price.text = dataset[position].price.toString()
-            holder.detail.text = dataset[position].detail
+            //holder.imageTool.setImageResource(dataset[position].url)
+            holder.nameTool.text = dataset[position].nombre
+            holder.count.text = dataset[position].cantidad.toString()
+            holder.price.text = dataset[position].precio.toString()
+            holder.detail.text = dataset[position].description
         }
 
         override fun getItemCount(): Int = dataset.size
