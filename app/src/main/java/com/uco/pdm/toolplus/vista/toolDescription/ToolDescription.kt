@@ -8,16 +8,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.airbnb.lottie.LottieAnimationView
-import com.google.android.material.imageview.ShapeableImageView
 import com.uco.pdm.toolplus.R
+import com.uco.pdm.toolplus.databinding.FragmentToolDescriptionBinding
+import com.uco.pdm.toolplus.models.Compra
+import com.uco.pdm.toolplus.models.Usuario
+import com.uco.pdm.toolplus.persistence.database.AppDatabase
 import com.uco.pdm.toolplus.vista.prebill.pre_bill_2
 import com.uco.pdm.toolplus.vista.recyclerViewUser.ReciclerViewToolUserActivity
 
 class ToolDescription : Fragment() {
+
+    private var _binding: FragmentToolDescriptionBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var db: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,39 +37,45 @@ class ToolDescription : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView : View = inflater.inflate(R.layout.fragment_tool_description, container, false)
-
+        _binding = FragmentToolDescriptionBinding.inflate(inflater, container, false)
         val dataBundle = arguments
-        val image = dataBundle!!.getInt("imageView")
+        //val image = dataBundle!!.getInt("imageView")
         val name = dataBundle!!.getString("nameToolUpdate")
         val description = dataBundle.getString("descriptionToolUpdate")
         val price = dataBundle.getInt("priceToolUpdate")
         val count = dataBundle.getInt("countToolUpdate")
 
-        val imageTool = rootView.findViewById<ShapeableImageView>(R.id.ToolImage)
-        val nameTool = rootView.findViewById<TextView>(R.id.toolName)
-        val descriptionTool = rootView.findViewById<TextView>(R.id.toolDescription)
-        val princeTool = rootView.findViewById<TextView>(R.id.toolPrice)
-        val countTool = rootView.findViewById<TextView>(R.id.TextNumberOfTools)
+        //val imageTool = binding.root.findViewById<ShapeableImageView>(R.id.ToolImage)
+        val nameTool = binding.root.findViewById<TextView>(R.id.toolName)
+        val descriptionTool = binding.root.findViewById<TextView>(R.id.toolDescription)
+        val princeTool = binding.root.findViewById<TextView>(R.id.toolPrice)
+        val countTool = binding.root.findViewById<TextView>(R.id.TextNumberOfTools)
 
-        //val days = rootView.find ViewById<EditText>(R.id.numberOfDays).toString()
-        //val totalPrice = rootView.findViewById<TextView>(R.id.fullValueOfTool)
-        //val priceOneTool = princeTool.toString()
+        val days = binding.root.findViewById<EditText>(R.id.numberOfDaysDescription)
+        val totalPrice = binding.root.findViewById<TextView>(R.id.fullValueOfTool)
+        //val priceTotal = days.text.toString().toInt() * price.toString().toInt()
 
 
-        imageTool.setImageResource(image)
+        //imageTool.setImageResource(image)
         nameTool.text = name
         descriptionTool.text = description
         princeTool.text = price.toString()
         countTool.text = count.toString()
 
-        /*if(days != null){
-            val total = days.toInt() * priceOneTool.toInt()
-            totalPrice.text = "El precio a pagar es: $total"
-        }*/
-        val buiderDialog = AlertDialog.Builder(activity)
+        if (days.text.toString().isNotEmpty() && price.toString().isNotEmpty()) {
+            val daysInt = binding.numberOfDaysDescription.text.toString().toInt()
+            val priceInt = binding.toolPrice.text.toString().toInt()
+            val priceTotal = daysInt * priceInt
+            totalPrice.text = priceTotal.toString()
+        } else {
+            Toast.makeText(activity, "Ingrese los dias de alquiler", Toast.LENGTH_SHORT).show()
+        }
 
-        val preBill = rootView.findViewById<Button>(R.id.ContinueButtonDescription)
+
+
+        val buiderDialog = AlertDialog.Builder(activity)
+        db = AppDatabase.getInstance(context)
+        val preBill = binding.root.findViewById<Button>(R.id.ContinueButtonDescription)
         preBill.setOnClickListener {
             buiderDialog.setTitle("¿Desea realizar más compras?")
                 .setPositiveButton("Continuar"){dialogInterface, it ->
@@ -80,12 +94,12 @@ class ToolDescription : Fragment() {
                 .show()
         }
 
-        val returnRecycler = rootView.findViewById<Button>(R.id.backButtonDescription)
+        val returnRecycler = binding.root.findViewById<Button>(R.id.backButtonDescription)
         returnRecycler.setOnClickListener {
             val intent = Intent(activity, ReciclerViewToolUserActivity::class.java)
             startActivity(intent)
         }
-        return rootView
+        return binding.root
     }
 
     fun seeDialog(){
@@ -101,6 +115,20 @@ class ToolDescription : Fragment() {
         btnYes.setOnClickListener {
             Toast.makeText(activity, "Se realizará prefactura", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
+
+            val dataBundle = arguments
+            val idTool = dataBundle!!.getInt("idTool")
+            val emailUser = dataBundle.getString("emailCliente")
+
+            val compra = Compra(
+                correo = emailUser,
+                herramienta = idTool
+            )
+
+            db.compraDAO().insertAll(compra)
+            Toast.makeText(context, "Compra actualizada ", Toast.LENGTH_LONG).show()
+
+
             //fragment
             val fmanager = activity?.supportFragmentManager
             val fmanagertrs = fmanager?.beginTransaction()

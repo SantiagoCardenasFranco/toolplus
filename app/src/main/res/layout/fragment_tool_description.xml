@@ -145,7 +145,7 @@
 
 
         <EditText
-            android:id="@+id/numberOfDays"
+            android:id="@+id/numberOfDaysDescription"
             android:layout_width="130dp"
             android:layout_height="40dp"
             android:hint="Dias de alquiler"

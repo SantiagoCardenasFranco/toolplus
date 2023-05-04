@@ -54,6 +54,8 @@ class ReciclerViewToolUserActivity : AppCompatActivity() {
         val fmanagertrs = fmanager.beginTransaction()
         val fragment = ToolDescription()
         val dataBundle = Bundle()
+        dataBundle.putInt("idTool", tool[position].herramientaId)
+        dataBundle.putString("emailCliente", dataUser)
         dataBundle.putString("imageView", tool[position].url)
         dataBundle.putString("nameToolUpdate", tool[position].nombre)
         dataBundle.putString("descriptionToolUpdate", tool[position].description)
