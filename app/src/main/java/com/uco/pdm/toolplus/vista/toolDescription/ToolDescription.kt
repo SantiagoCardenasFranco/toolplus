@@ -133,6 +133,12 @@ class ToolDescription : Fragment() {
             val fmanager = activity?.supportFragmentManager
             val fmanagertrs = fmanager?.beginTransaction()
             val fragment = pre_bill_2()
+
+            val dataBundlePreBill = Bundle()
+            dataBundle.putInt("cantidad", binding.numberOfDaysDescription.text.toString().toInt())
+            dataBundle.putInt("precio", binding.toolPrice.text.toString().toInt())
+
+            fragment.arguments = dataBundlePreBill
             fmanagertrs?.add(R.id.toolDescriptionUser, fragment)?.commit()
         }
 
