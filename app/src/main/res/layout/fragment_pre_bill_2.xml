@@ -261,7 +261,6 @@
             android:layout_height="32dp"
             android:background="@drawable/edge_layout_2"
             android:gravity="center"
-            android:text="$Valor Total"
             android:textColor="#fff"
             android:textColorHint="#fff"
             android:textSize="20sp"

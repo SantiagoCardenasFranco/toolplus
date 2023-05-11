@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.uco.pdm.toolplus.R
 import com.uco.pdm.toolplus.integration.PriceImpl
+import kotlinx.coroutines.*
 
 class pre_bill_2 : Fragment() {
 
@@ -19,15 +21,20 @@ class pre_bill_2 : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val rootView : View = inflater.inflate(R.layout.fragment_pre_bill_2, container, false)
 
+        priceImpl = PriceImpl()
+
         val dataBundle = arguments
         val cantidad = dataBundle!!.getInt("cantidad")
         val precio = dataBundle!!.getInt("precio")
+
+        Toast.makeText(activity, "Valores " + cantidad + " "+ precio, Toast.LENGTH_SHORT).show()
 
         val total = rootView.findViewById<TextView>(R.id.totalValue)
         val impuesto = rootView.findViewById<EditText>(R.id.impuestoEdit)
@@ -35,8 +42,12 @@ class pre_bill_2 : Fragment() {
 
         val buttomConfirm = rootView.findViewById<Button>(R.id.buttonContinue)
         buttomConfirm.setOnClickListener {
-            val call = priceImpl.operatePrice(cantidad, impuesto.text.toString(),precio).resultado
-            total.text = call.toString();
+            GlobalScope.launch (Dispatchers.IO ){
+                val call = priceImpl.operatePrice(cantidad, impuesto.text.toString(),precio).resultado.toString()
+                withContext(Dispatchers.Main) {
+                    total.text = call;
+                }
+            }
         }
         return rootView
     }
