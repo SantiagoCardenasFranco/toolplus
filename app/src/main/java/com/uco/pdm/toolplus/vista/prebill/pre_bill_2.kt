@@ -10,12 +10,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.uco.pdm.toolplus.R
-import com.uco.pdm.toolplus.integration.PriceImpl
+import com.uco.pdm.toolplus.integration.APIImpl
 import kotlinx.coroutines.*
 
 class pre_bill_2 : Fragment() {
 
-    private lateinit var priceImpl: PriceImpl
+    private lateinit var apiImpl: APIImpl
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,7 @@ class pre_bill_2 : Fragment() {
     ): View? {
         val rootView : View = inflater.inflate(R.layout.fragment_pre_bill_2, container, false)
 
-        priceImpl = PriceImpl()
+        apiImpl = APIImpl()
 
         val dataBundle = arguments
         val cantidad = dataBundle!!.getInt("cantidad")
@@ -43,7 +43,8 @@ class pre_bill_2 : Fragment() {
         val buttomConfirm = rootView.findViewById<Button>(R.id.buttonContinue)
         buttomConfirm.setOnClickListener {
             GlobalScope.launch (Dispatchers.IO ){
-                val call = priceImpl.operatePrice(cantidad, impuesto.text.toString(),precio).resultado.toString()
+                val dataAut = apiImpl.operateAut("prueba", "prueba").token
+                val call = apiImpl.operatePrice(cantidad, impuesto.text.toString(),precio, dataAut).resultado.toString()
                 withContext(Dispatchers.Main) {
                     total.text = call;
                 }

@@ -1,4 +1,4 @@
-package com.uco.pdm.toolplus.integration
+package com.uco.pdm.toolplus.integration.response
 
 import com.google.gson.annotations.SerializedName
 
