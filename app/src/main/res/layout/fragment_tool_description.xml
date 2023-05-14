@@ -145,10 +145,10 @@
 
 
         <EditText
-            android:id="@+id/numberOfDaysDescription"
+            android:id="@+id/cantidadDescription"
             android:layout_width="130dp"
             android:layout_height="40dp"
-            android:hint="Dias de alquiler"
+            android:hint="Cantidad a alquilar"
             android:inputType="number"
             android:textColor="#fff"
             android:textColorHint="#fff"

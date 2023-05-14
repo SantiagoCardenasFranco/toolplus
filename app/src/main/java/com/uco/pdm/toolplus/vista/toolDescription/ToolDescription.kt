@@ -51,7 +51,7 @@ class ToolDescription : Fragment() {
         val princeTool = binding.root.findViewById<TextView>(R.id.toolPrice)
         val countTool = binding.root.findViewById<TextView>(R.id.TextNumberOfTools)
 
-        val days = binding.root.findViewById<EditText>(R.id.numberOfDaysDescription)
+        val cantidad = binding.root.findViewById<EditText>(R.id.cantidadDescription)
         val totalPrice = binding.root.findViewById<TextView>(R.id.fullValueOfTool)
         //val priceTotal = days.text.toString().toInt() * price.toString().toInt()
 
@@ -62,10 +62,10 @@ class ToolDescription : Fragment() {
         princeTool.text = price.toString()
         countTool.text = count.toString()
 
-        if (days.text.toString().isNotEmpty() && price.toString().isNotEmpty()) {
-            val daysInt = binding.numberOfDaysDescription.text.toString().toInt()
+        if (cantidad.text.toString().isNotEmpty() && price.toString().isNotEmpty()) {
+            val cantidadInt = binding.cantidadDescription.text.toString().toInt()
             val priceInt = binding.toolPrice.text.toString().toInt()
-            val priceTotal = daysInt * priceInt
+            val priceTotal = cantidadInt * priceInt
             totalPrice.text = priceTotal.toString()
         } else {
             Toast.makeText(activity, "Ingrese los dias de alquiler", Toast.LENGTH_SHORT).show()
@@ -133,6 +133,16 @@ class ToolDescription : Fragment() {
             val fmanager = activity?.supportFragmentManager
             val fmanagertrs = fmanager?.beginTransaction()
             val fragment = pre_bill_2()
+
+            val dataBundlePreBill = Bundle()
+            dataBundlePreBill.putInt("cantidad", binding.cantidadDescription.text.toString().toInt())
+            dataBundlePreBill.putInt("precio", binding.toolPrice.text.toString().toInt())
+
+            //Toast.makeText(activity, "Valores " + binding.cantidadDescription.text.toString().toInt()
+            //        + " "+ binding.toolPrice.text.toString().toInt(), Toast.LENGTH_SHORT).show()
+
+
+            fragment.arguments = dataBundlePreBill
             fmanagertrs?.add(R.id.toolDescriptionUser, fragment)?.commit()
         }
 

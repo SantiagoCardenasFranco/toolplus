@@ -241,6 +241,37 @@
 
 
         <TextView
+            android:id="@+id/impuesto"
+            android:layout_width="179dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:text="Tipo de impuesto:"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:textSize="20sp"
+            android:translationX="-80dp"
+            android:translationY="-70dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="48dp"
+            tools:layout_editor_absoluteY="445dp" />
+
+        <EditText
+            android:id="@+id/impuestoEdit"
+            android:layout_width="134dp"
+            android:layout_height="32dp"
+            android:background="@drawable/edge_layout_2"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:textSize="20sp"
+            android:translationX="80dp"
+            android:inputType="text"
+            android:translationY="-102dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="234dp"
+            tools:layout_editor_absoluteY="445dp" />
+
+        <TextView
             android:id="@+id/textTotal"
             android:layout_width="179dp"
             android:layout_height="32dp"
@@ -254,6 +285,8 @@
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="48dp"
             tools:layout_editor_absoluteY="445dp" />
+
+
 
         <TextView
             android:id="@+id/totalValue"
@@ -294,30 +327,10 @@
             tools:layout_editor_absoluteX="32dp"
             tools:layout_editor_absoluteY="525dp" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="37dp"
-            android:backgroundTint="#E91E1E"
-            android:src="@drawable/baseline_delete"
-            android:translationX="170dp"
-            android:translationY="-460dp"
-            app:fabSize="mini"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="345dp"
-            tools:layout_editor_absoluteY="173dp" />
 
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="42dp"
-            android:layout_height="41dp"
-            android:backgroundTint="#E91E1E"
-            android:src="@drawable/baseline_delete"
-            android:translationX="170dp"
-            android:translationY="-440dp"
-            app:fabSize="mini"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="344dp"
-            tools:layout_editor_absoluteY="234dp" />
+
+
 
 
     </LinearLayout>
