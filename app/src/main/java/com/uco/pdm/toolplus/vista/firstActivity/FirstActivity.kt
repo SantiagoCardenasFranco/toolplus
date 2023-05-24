@@ -8,6 +8,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.uco.pdm.toolplus.R
 import com.uco.pdm.toolplus.databinding.ActivityFirstBinding
@@ -22,7 +24,7 @@ class FirstActivity : AppCompatActivity() {
     private var _binding: ActivityFirstBinding? = null
     private val binding get() = _binding!!
     private lateinit var db: AppDatabase
-    private lateinit var database: FirebaseDatabase 
+
 
     var email = ""
     var rol = ""
@@ -34,6 +36,10 @@ class FirstActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         db = AppDatabase.getInstance(this)
+
+
+
+
 
 
         /*binding.btnentrar.setOnClickListener{
@@ -51,6 +57,8 @@ class FirstActivity : AppCompatActivity() {
             }
         }*/
     }
+
+
 
     fun RegistroData(view: View){
         val fmanager = supportFragmentManager
