@@ -121,7 +121,7 @@ class user_register : Fragment() {
         if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(id) && !TextUtils.isEmpty(cel) && !TextUtils.isEmpty(add) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(pasw) && !TextUtils.isEmpty(valid)){
 
             auth.createUserWithEmailAndPassword(email,pasw)
-                .addOnCompleteListener(this) {
+                .addOnCompleteListener{
                     task ->
                     if (task.isComplete){
                         val user: FirebaseUser?=auth.currentUser
@@ -151,7 +151,19 @@ class user_register : Fragment() {
     }
 
     private fun action(){
-        startActivity(Intent(this,FirstActivity::class.java))
+        startActivity(Intent(requireContext().applicationContext,FirstActivity::class.java))
+    }
+
+    private fun verifyEmail(user: FirebaseUser?){
+        user?.sendEmailVerification()
+            ?.addOnCompleteListener{
+                task ->
+                if(task.isComplete){
+                    Toast.makeText(requireContext().applicationContext, "Correo enviado", Toast.LENGTH_LONG).show()
+                }else{
+                    Toast.makeText(requireContext().applicationContext, "Error al enviar correo", Toast.LENGTH_LONG).show()
+                }
+            }
     }
 
 
