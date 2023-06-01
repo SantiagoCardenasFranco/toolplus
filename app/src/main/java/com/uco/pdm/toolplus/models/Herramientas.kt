@@ -3,6 +3,7 @@ package com.uco.pdm.toolplus.models
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.firebase.firestore.Exclude
 
 @Entity(tableName = "tabla_herramientas")
 data class Herramientas(
@@ -14,4 +15,6 @@ data class Herramientas(
 ){
     @PrimaryKey(autoGenerate = true)
     var herramientaId: Int = 0
+    
+    constructor() : this("", "", 0, 0, "")
 }

@@ -1,8 +1,10 @@
 package com.uco.pdm.toolplus
 
 import android.app.AlertDialog
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +12,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.uco.pdm.toolplus.databinding.FragmentRegisterToolBinding
 import com.uco.pdm.toolplus.databinding.FragmentSevenRegUserBinding
 import com.uco.pdm.toolplus.models.Herramientas
@@ -21,6 +25,7 @@ import com.uco.pdm.toolplus.vista.recyclerViewUser.RecyclerViewToolsActivity
 class RegisterToolFragment : Fragment() {
 
     private var _binding: FragmentRegisterToolBinding? = null
+    val dbFirebase = Firebase.firestore
 
     private val binding get() = _binding!!
     private lateinit var db: AppDatabase
@@ -62,11 +67,21 @@ class RegisterToolFragment : Fragment() {
                 binding.descriptionToolRegister.text.toString(),
                 binding.priceToolRegister.text.toString().toInt(),
                 binding.countToolRegister.text.toString().toInt(),
-                binding.imageView.textAlignment.toString(),
+                "https://firebasestorage.googleapis.com/v0/b/toolplus-b5f28.appspot.com/o/alicate.png?alt=media&token=56eef387-0453-4cc8-8042-8c0aab00140e&_gl=1*kd5aj6*_ga*MTk1MTI3NTk1MC4xNjg0Mjg5MTI4*_ga_CW55HF8NVT*MTY4NTQ5OTAyOC42LjEuMTY4NTUwMDU0My4wLjAuMA.."
             )
             db.herramientaDAO().insertAll(herramienta)
             Toast.makeText(context, "Herramienta creada", Toast.LENGTH_LONG).show()
+
+            dbFirebase.collection("herramientas")
+                .add(herramienta)
+                .addOnSuccessListener { documentReference ->
+                    Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                }
+                .addOnFailureListener { e ->
+                    Log.w(TAG, "Error adding document", e)
+                }
         }
+
     }
 
     private fun saveToolFun(){
