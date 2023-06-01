@@ -15,6 +15,6 @@ data class Herramientas(
 ){
     @PrimaryKey(autoGenerate = true)
     var herramientaId: Int = 0
-    
+
     constructor() : this("", "", 0, 0, "")
 }

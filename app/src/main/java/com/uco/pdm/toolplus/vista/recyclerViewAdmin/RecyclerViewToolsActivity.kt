@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.airbnb.lottie.LottieAnimationView
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.uco.pdm.toolplus.*
 import com.uco.pdm.toolplus.adapters.ToolAdapter
@@ -20,6 +21,7 @@ import com.uco.pdm.toolplus.RegisterToolFragment
 import com.uco.pdm.toolplus.UpdateToolFragment
 import com.uco.pdm.toolplus.models.Herramientas
 import com.uco.pdm.toolplus.persistence.database.AppDatabase
+import com.uco.pdm.toolplus.utils.UtilsArray
 
 class RecyclerViewToolsActivity : AppCompatActivity() {
 
@@ -118,25 +120,24 @@ class RecyclerViewToolsActivity : AppCompatActivity() {
 
     fun initTools(tools:ArrayList<Herramientas>){
 
-        val herramientasList = ArrayList<Herramientas>()
+        var herramientasList = emptyArray<Herramientas>()
 
         dbFirebase.collection("herramientas")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
                     Log.d(TAG, "${document.id} => ${document.data}")
-                    val herramienta = document.toObject(Herramientas::class.java)
-                    herramientasList.add(herramienta)
+                    val herramienta = document.toObject<Herramientas>()
+                    herramientasList = UtilsArray().append(herramientasList, herramienta)
                 }
-                tools.addAll(herramientasList)
-                println("Cantidad de herramientas agregadas: ${tools.size}")
-            }
+                db.herramientaDAO().insertAll(*herramientasList)
+                herramientasList.forEach { println("Herramientas from #####FIREBASE#### $it") }}
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents.", exception)
             }
 
-        //val listAllToolsLocal: List<Herramientas> = db.herramientaDAO().getAll()
-        //tools.addAll(herramientasList)
+        val listAllToolsLocal: List<Herramientas> = db.herramientaDAO().getAll()
+        tools.addAll(listAllToolsLocal)
         //println("AGREGADOS")
     }
 }
