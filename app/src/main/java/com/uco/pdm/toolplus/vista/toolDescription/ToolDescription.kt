@@ -13,6 +13,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.airbnb.lottie.LottieAnimationView
+import com.google.android.material.imageview.ShapeableImageView
+import com.squareup.picasso.Picasso
 import com.uco.pdm.toolplus.R
 import com.uco.pdm.toolplus.databinding.FragmentToolDescriptionBinding
 import com.uco.pdm.toolplus.models.Compra
@@ -39,13 +41,13 @@ class ToolDescription : Fragment() {
     ): View? {
         _binding = FragmentToolDescriptionBinding.inflate(inflater, container, false)
         val dataBundle = arguments
-        //val image = dataBundle!!.getInt("imageView")
+        val image = dataBundle!!.getString("idImage")
         val name = dataBundle!!.getString("nameToolUpdate")
         val description = dataBundle.getString("descriptionToolUpdate")
         val price = dataBundle.getInt("priceToolUpdate")
         val count = dataBundle.getInt("countToolUpdate")
 
-        //val imageTool = binding.root.findViewById<ShapeableImageView>(R.id.ToolImage)
+        val imageTool = binding.root.findViewById<ShapeableImageView>(R.id.ToolImage)
         val nameTool = binding.root.findViewById<TextView>(R.id.toolName)
         val descriptionTool = binding.root.findViewById<TextView>(R.id.toolDescription)
         val princeTool = binding.root.findViewById<TextView>(R.id.toolPrice)
@@ -56,7 +58,7 @@ class ToolDescription : Fragment() {
         //val priceTotal = days.text.toString().toInt() * price.toString().toInt()
 
 
-        //imageTool.setImageResource(image)
+        Picasso.get().load(image).into(imageTool)
         nameTool.text = name
         descriptionTool.text = description
         princeTool.text = price.toString()

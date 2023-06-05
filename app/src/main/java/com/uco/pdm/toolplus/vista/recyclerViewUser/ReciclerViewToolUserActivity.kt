@@ -1,22 +1,29 @@
 package com.uco.pdm.toolplus.vista.recyclerViewUser
 
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.ktx.Firebase
 import com.uco.pdm.toolplus.R
 import com.uco.pdm.toolplus.adapters.ToolAdapterUser
 import com.uco.pdm.toolplus.databinding.ActivityReciclerViewToolUserBinding
 import com.uco.pdm.toolplus.models.Herramientas
 import com.uco.pdm.toolplus.persistence.database.AppDatabase
+import com.uco.pdm.toolplus.utils.UtilsArray
 import com.uco.pdm.toolplus.vista.firstActivity.FirstActivity
 import com.uco.pdm.toolplus.vista.toolDescription.ToolDescription
 
 class ReciclerViewToolUserActivity : AppCompatActivity() {
 
     private lateinit var db: AppDatabase
+    val dbFirebase = Firebase.firestore
 
     private lateinit var binding: ActivityReciclerViewToolUserBinding
     val tool = arrayListOf<Herramientas>()
@@ -55,6 +62,7 @@ class ReciclerViewToolUserActivity : AppCompatActivity() {
         val fragment = ToolDescription()
         val dataBundle = Bundle()
         dataBundle.putInt("idTool", tool[position].herramientaId)
+        dataBundle.putString("idImage", tool[position].url)
         dataBundle.putString("emailCliente", dataUser)
         dataBundle.putString("imageView", tool[position].url)
         dataBundle.putString("nameToolUpdate", tool[position].nombre)
@@ -72,9 +80,24 @@ class ReciclerViewToolUserActivity : AppCompatActivity() {
     }
 
     fun initTools(tools:ArrayList<Herramientas>){
-        val listAllTools: List<Herramientas> = db.herramientaDAO().getAll()
-        tools.addAll(listAllTools)
-        println("AGREGADOS")
+        var herramientasList = emptyArray<Herramientas>()
+
+        dbFirebase.collection("herramientas")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
+                    val herramienta = document.toObject<Herramientas>()
+                    herramientasList = UtilsArray().append(herramientasList, herramienta)
+                }
+                db.herramientaDAO().insertAll(*herramientasList)
+                herramientasList.forEach { println("Herramientas from #####FIREBASE#### $it") }}
+            .addOnFailureListener { exception ->
+                Log.w(ContentValues.TAG, "Error getting documents.", exception)
+            }
+
+        val listAllToolsLocal: List<Herramientas> = db.herramientaDAO().getAll()
+        tools.addAll(listAllToolsLocal)
 
     }
 

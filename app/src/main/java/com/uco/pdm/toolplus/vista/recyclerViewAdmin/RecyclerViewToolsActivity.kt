@@ -92,6 +92,15 @@ class RecyclerViewToolsActivity : AppCompatActivity() {
 
     fun eliminar(position: Int){
         db.herramientaDAO().deleteAll(tool[position].herramientaId)
+        dbFirebase.collection("herramientas")
+            .document(tool[position].herramientaId.toString())
+            .delete()
+            .addOnSuccessListener {
+                Log.d(TAG, "Herramienta eliminada correctamente")
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error al eliminar la herramienta", exception)
+            }
         seeDialog()
     }
 

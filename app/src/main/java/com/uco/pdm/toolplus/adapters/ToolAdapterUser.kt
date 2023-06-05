@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import com.uco.pdm.toolplus.R
 import com.uco.pdm.toolplus.models.Herramientas
 
@@ -57,7 +58,7 @@ class ToolAdapterUser(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        //holder.imageTool.setImageResource(dataset[position].imageUser)
+        Picasso.get().load(dataset[position].url).into(holder.imageTool)
         holder.nameTool.text = dataset[position].nombre
         holder.count.text = "Unidades: "+dataset[position].cantidad.toString()
         holder.price.text = "Costo: "+dataset[position].precio.toString()

@@ -2,8 +2,10 @@ package com.uco.pdm.toolplus
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +15,8 @@ import androidx.fragment.app.Fragment
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.imageview.ShapeableImageView
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.uco.pdm.toolplus.databinding.FragmentRegisterToolBinding
 import com.uco.pdm.toolplus.databinding.FragmentUpdateToolBinding
 import com.uco.pdm.toolplus.models.Herramientas
@@ -22,6 +26,8 @@ import com.uco.pdm.toolplus.vista.recyclerViewUser.RecyclerViewToolsActivity
 class UpdateToolFragment : Fragment() {
 
     private var _binding: FragmentUpdateToolBinding? = null
+    val dbFirebase = Firebase.firestore
+
 
     private val binding get() = _binding!!
     private lateinit var db: AppDatabase
@@ -82,6 +88,25 @@ class UpdateToolFragment : Fragment() {
                 binding.countToolUpdate.text.toString().toInt(),
                 binding.imageViewTool.textAlignment.toString()
             )
+
+            val nuevosDatos = hashMapOf(
+                "nombre" to binding.nameToolUpdate.text.toString(),
+                "description" to binding.descriptionToolUpdate.text.toString(),
+                "precio" to binding.priceToolUpdate.text.toString().toInt(),
+                "cantidad" to binding.countToolUpdate.text.toString().toInt(),
+                "url" to "",
+            )
+
+            dbFirebase.collection("herramientas")
+                .document(idTool.toString())
+                .update(nuevosDatos as Map<String, Any>)
+                .addOnSuccessListener {
+                    Log.d(TAG, "Herramienta actualizada correctamente")
+                }
+                .addOnFailureListener { exception ->
+                    Log.w(TAG, "Error al actualizar la herramienta", exception)
+                }
+
             herramienta.cantidad?.let { it1 ->
                 herramienta.nombre?.let { it2 ->
                     herramienta.description?.let { it3 ->
