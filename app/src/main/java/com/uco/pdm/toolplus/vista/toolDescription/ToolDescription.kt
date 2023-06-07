@@ -2,8 +2,10 @@ package com.uco.pdm.toolplus.vista.toolDescription
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +16,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.imageview.ShapeableImageView
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import com.uco.pdm.toolplus.R
 import com.uco.pdm.toolplus.databinding.FragmentToolDescriptionBinding
@@ -28,6 +32,8 @@ class ToolDescription : Fragment() {
     private var _binding: FragmentToolDescriptionBinding? = null
     private val binding get() = _binding!!
     private lateinit var db: AppDatabase
+    val dbFirebase = Firebase.firestore
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -128,6 +134,14 @@ class ToolDescription : Fragment() {
             )
 
             db.compraDAO().insertAll(compra)
+            dbFirebase.collection("compra")
+                .add(compra)
+                .addOnSuccessListener { documentReference ->
+                    Log.d(ContentValues.TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                }
+                .addOnFailureListener { e ->
+                    Log.w(ContentValues.TAG, "Error adding document", e)
+                }
             Toast.makeText(context, "Compra actualizada ", Toast.LENGTH_LONG).show()
 
 
